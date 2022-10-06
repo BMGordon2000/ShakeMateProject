@@ -1,6 +1,7 @@
-from user import *
-from ingredients import Ingredients
-from recipes import Recipes
+from Shake import *
+from User import *
+from Ingredient import *
+
 
 #TODO find out exactly what parameter should be used
 def get_selected_recipes(ingredients: Ingredients) -> List[Recipes]:
