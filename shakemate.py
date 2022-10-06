@@ -3,6 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 
 webapp = Flask(__name__)
 
+
 @webapp.route('/')
 def index():
     return render_template('index.html')
