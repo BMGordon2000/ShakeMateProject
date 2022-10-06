@@ -11,3 +11,10 @@ def get_user_data(user: User) -> List[Data]:
     :return: a List of recipe objects or an empty list if the user has no favorites
     """
     pass
+def Userfavorites(user: User) -> List[Shake]:
+    """
+    This method will line up the particular shake to the user, and return it to the favorites list.
+    :param user: the shake list is sent to the use once favorited
+    :return: a list of shakes or an empty list if the user has no favorites
+    """
+    pass
