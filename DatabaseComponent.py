@@ -22,15 +22,15 @@ def getUserInfo(user: User) -> (email, password):
     """
     pass
 
-def getUserHistory(user: User) -> List[History]:
+def getUserHistory(user: User) -> List[Shake]:
     """
-    This method returns the current user's most recent recipe history
-    :param: A user object
+    This method returns a list of the current user's recently viewed shakes
+    :param user: The current user object
     :return: A List containing Shake objects
     """
     pass
 
-def getUserFavorites(user: User) -> (email, password):
+def getUserFavorites(user: User) -> List[Shake]:
     """
     This method returns the current user's entire favorites list
     :param: A user object
