@@ -21,5 +21,5 @@
 ## Setting up flask in Visual Studio Code
 
 1. In the VS code terminal, enter: `pip3 install flask flask-sqlalchemy`
-2. Once `import flask from Flask` has been implemented in your code, make sure it is working by running the following code in the VS code terminal: `python3 shakemate.py`
+2. Once `import flask from Flask` has been implemented in your code, make sure it is working by running the following code in the VS code terminal: `python3 shakemate.py` or `py shakemate.py` if you are running on windows 11
 3. The previous step will display a local host id that serves as a link to the page. You can also manually type in the host id into the url.
