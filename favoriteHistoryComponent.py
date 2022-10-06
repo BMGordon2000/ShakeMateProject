@@ -1,10 +1,9 @@
-# Authentication Component
+# Favorites History Component
 
 from Shake import Shake
 from User import User
 
-
-def get_user_data_for_accPage(user: User) -> List[Data]:
+def shakeInfoForAccount(user: User) -> List[Shake]:
     """
     This method returns the favorite list for a particular user. Returns an empty list if the favorite list is empty.
     :param user: the User object for whom you want to get the favorite list
