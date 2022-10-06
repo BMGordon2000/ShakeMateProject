@@ -7,6 +7,10 @@ webapp = Flask(__name__)
 @webapp.route('/')
 def index():
     return render_template('index.html')
+
+@webapp.route('/ingredients')
+def ingredients():
+    return render_template('Ingredients.html')
     
 if __name__ == "__main__":
     webapp.run(debug=True)
