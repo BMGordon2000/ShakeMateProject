@@ -4,4 +4,3 @@ class User:
         self.userPassword = password
         self.favorites = []
         self.history = []
-        
