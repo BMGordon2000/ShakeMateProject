@@ -1,32 +1,48 @@
 from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
+from flask import Flask,render_template,request, redirect,url_for
 
 webapp = Flask(__name__)
+# db = SQLAlchemy(webapp)
+# webapp.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db'
+# webapp.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+# with webapp.app_context():
+#     db.create_all()
+
+# class users(db.Model):
+#     id = db.Column(db.Integer, primary_key=True)
+#     name = db.Column(db.String(100))
+#     email = db.Column(db.String(100))
+#     password = db.Column(db.String(80))
 
 
-@webapp.route('/')
+@webapp.route('/', methods=["GET", "POST"])
 def index():
     return render_template('index.html')
 
-@webapp.route('/ingredients')
+@webapp.route('/ingredients', methods=["GET", "POST"])
 def ingredients():
     return render_template('Ingredients.html')
 
-@webapp.route('/recipes')
+@webapp.route('/recipes', methods=["GET", "POST"])
 def recipes():
     return render_template('Recipes.html')
 
-@webapp.route('/account')
+@webapp.route('/account', methods=["GET", "POST"])
 def account():
     return render_template('Account.html')
 
-@webapp.route('/authenticate')
+@webapp.route('/authenticate', methods=["GET", "POST"])
 def authenticate():
     return render_template('Authentication.html')
 
-@webapp.route('/Fav_Hist')
+@webapp.route('/Fav_Hist', methods=["GET", "POST"])
 def fav_hist():
     return render_template('Favorites_History.html')
-    
+
+@webapp.route('/signup', methods=["GET", "POST"])
+def signup():
+    return render_template("signup.html")
+
 if __name__ == "__main__":
     webapp.run(debug=True)

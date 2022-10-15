@@ -1,7 +1,39 @@
 # Authentication Component
-
+from flask import Flask ,Blueprint,render_template,flash,request,redirect,url_for
+from shakemate import *
+from DatabaseComponent import *
 from Shake import Shake
 from User import User
+
+
+authComponent = Blueprint('authComponent', __name__)
+
+@authComponent.route("/authenticate",methods=["GET", "POST"])
+def login():
+    if request.method == "POST":
+        username = request.form["username"]
+        password = request.form["password"]
+        
+        login = users.query.filter_by(username=username, password=password).first()
+        if login is not None:
+            return redirect(url_for("account"))
+        else:
+            flash("don't know you", category='error')
+    return render_template("Authentication.html")
+
+@authComponent.route("/signup", methods=["GET", "POST"])
+def signup():
+    if request.method == "POST":
+        username = request.form['username']
+        email = request.form['email']
+        password = request.form['password']
+
+        register = users(username = username, email = email, password = password)
+        db.session.add(register)
+        db.session.commit()
+
+        return redirect(url_for("authenticate"))
+    return render_template("signup.html")
 
 
 def get_user_data(user: User) -> List[Data]:
