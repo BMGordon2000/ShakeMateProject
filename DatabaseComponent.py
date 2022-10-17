@@ -6,20 +6,22 @@ from Ingredient import *
 
 
 
-from shakemate import webapp
-from flask_sqlalchemy import SQLAlchemy
 
-db = SQLAlchemy(webapp)
-webapp.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db'
-webapp.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-with webapp.app_context():
-    db.create_all()
+# from shakemate import webapp
+# from flask_sqlalchemy import SQLAlchemy
 
-class users(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(100))
-    email = db.Column(db.String(100))
-    password = db.Column(db.String(80))
+# db = SQLAlchemy(webapp)
+# webapp.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db'
+# webapp.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+# with webapp.app_context():
+#     db.create_all()
+
+# class users(db.Model):
+#     id = db.Column(db.Integer, primary_key=True)
+#     name = db.Column(db.String(100))
+#     email = db.Column(db.String(100))
+#     password = db.Column(db.String(80))
+
 
 
 

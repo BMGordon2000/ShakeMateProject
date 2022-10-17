@@ -1,20 +1,24 @@
 from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
-from flask import Flask,render_template,request, redirect,url_for
+
+
+
 
 webapp = Flask(__name__)
-# db = SQLAlchemy(webapp)
-# webapp.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db'
-# webapp.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-# with webapp.app_context():
-#     db.create_all()
+webapp.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db'
+webapp.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+db = SQLAlchemy(webapp)
 
-# class users(db.Model):
-#     id = db.Column(db.Integer, primary_key=True)
-#     name = db.Column(db.String(100))
-#     email = db.Column(db.String(100))
-#     password = db.Column(db.String(80))
 
+class users(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(100))
+    email = db.Column(db.String(100))
+    password = db.Column(db.String(80))
+
+    
+    with webapp.app_context():
+        db.create_all()
 
 @webapp.route('/', methods=["GET", "POST"])
 def index():
