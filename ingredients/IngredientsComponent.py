@@ -1,6 +1,6 @@
 from Shake import *
 from User import *
-from Ingredient import *
+from ingredients.Ingredient import *
 
 
 def get_selected_ingredients() -> List[Ingredient]:
