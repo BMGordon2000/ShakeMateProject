@@ -1,6 +1,6 @@
 from Shake import *
 from User import *
-from Ingredient import *
+from ingredients.Ingredient import *
 
 
 #TODO find out exactly what parameter should be used
