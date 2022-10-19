@@ -1,10 +1,33 @@
 {% extends 'base.html' %} 
 
 {% block head %}
-<title>ShakeMate</title>
+<link rel="stylesheet" href="{{ url_for('ingredients.static', filename='ingredientStyles.css') }}">
+<title>ShakeMate | Ingredient Selection</title>
 {% endblock %} 
 
 {% block body %}
-<h1><center>Ingredient Selection</center></h1>
+<nav id="top_nav">
+    <ul>
+        <li><h1><a href="/recipes">SHAKEMATE</a></h1></li>
+        <li style="float:right"><form action="/recipes"><button type="submit">Recipes</button></form></li>
+        <li style="float:right"><form action="/account"><button type="submit">Account</button></form></li>
+    </ul>
+</nav>
+
+<div class="grid">
+    {% for ingredients in ingredientList %}
+    <div class="grid-element"><a href="{{ url_for('ingredients.static', filename=ingredients["id"]|string+".png") }}"><img src="{{ url_for('ingredients.static', filename=ingredients["id"]|string+".png") }}" style="width:100%"></a></div>
+    {% endfor %}
+</div>
+
+<aside>
+    <p><center><strong>Currently Selected:</strong></center></p>
+    <div class="grid2">
+        <div class="grid-element"><img src="{{ url_for('ingredients.static', filename='4.png') }}" style="width:100%"></div>
+        <div class="grid-element"><img src="{{ url_for('ingredients.static', filename='3.png') }}" style="width:100%"></div>
+        <div class="grid-element"><img src="{{ url_for('ingredients.static', filename='9.png') }}" style="width:100%"></div>
+        <div class="grid-element"><img src="{{ url_for('ingredients.static', filename='8.png') }}" style="width:100%"></div>
+    </div> 
+</aside>
 
 {% endblock %}

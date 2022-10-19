@@ -5,6 +5,38 @@
 {% endblock %} 
 
 {% block body %}
-<h1><center>User Authentication Component</center></h1>
+<p><a href="/signup">signup</a></p>
 
+<div class="column is-4 is-offset-4">
+    <h3 class="title">Login</h3>
+    <div class="box">
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class="notification is-danger">
+                    {{ messages[0] }}
+                </div>
+            {% endif %}
+        {% endwith %}
+        <form method="POST" action="/login">
+            <div class="field">
+                <div class="control">
+                    <input class="input is-large" type="email" name="email" placeholder="Your Email" autofocus="">
+                </div>
+            </div>
+
+            <div class="field">
+                <div class="control">
+                    <input class="input is-large" type="password" name="password" placeholder="Your Password">
+                </div>
+            </div>
+            <button class="button is-block is-info is-large is-fullwidth">Login</button>
+        </form>
+        <div class="remember">
+            <div class="col s5 offset-s1 right-align">
+                <input type="checkbox" class="with-gap" email="persist">
+                <label for="persist">Remember Me</label>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
