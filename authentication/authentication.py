@@ -53,4 +53,4 @@ def signup():
 @authentication.route('/logout', methods=['POST', 'GET'])
 def logout():
     logout_user()
-    return redirect(url_for('authentication.index'))
+    return redirect(url_for('authentication.login'))
