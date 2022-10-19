@@ -49,6 +49,7 @@ aside {
     width: 35%;
     padding-left: .5rem;
     margin-left: .5rem;
+    margin-top: 60px;
     float: right;
     border: 3px solid rgba(0,0,0,0.8);
 }
