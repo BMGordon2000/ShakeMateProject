@@ -1,13 +1,8 @@
 {% extends 'base.html' %} 
 
 {% block head %}
-<link rel="stylesheet" href="{{ url_for('static', filename='ingredientStyles.css') }}">
+<link rel="stylesheet" href="{{ url_for('ingredients.static', filename='ingredientStyles.css') }}">
 <title>ShakeMate | Ingredient Selection</title>
-<style>
-    #top_nav {
-    display: block;
-    }
-</style>
 {% endblock %} 
 
 {% block body %}
@@ -20,24 +15,24 @@
 </nav>
 
 <div class="grid">
-    <div class="grid-"><a href="/static/ing1.png"><img src="/static/ing1.png" style="width:100%"></a></div>
-    <div class="grid-"><a href="/static/ing2.png"><img src="/static/ing2.png" style="width:100%"></a></div>
-    <div class="grid-"><a href="/static/ing3.png"><img src="/static/ing3.png" style="width:100%"></a></div>
-    <div class="grid-"><a href="/static/ing4.png"><img src="/static/ing4.png" style="width:100%"></a></div>
-    <div class="grid-"><a href="/static/ing5.png"><img src="/static/ing5.png" style="width:100%"></a></div>
-    <div class="grid-"><a href="/static/ing6.png"><img src="/static/ing6.png" style="width:100%"></a></div>
-    <div class="grid-"><a href="/static/ing7.png"><img src="/static/ing7.png" style="width:100%"></a></div>
-    <div class="grid-"><a href="/static/ing8.png"><img src="/static/ing8.png" style="width:100%"></a></div>
-    <div class="grid-"><a href="/static/ing9.png"><img src="/static/ing9.png" style="width:100%"></a></div>
+    <div class="grid-"><a href="{{ url_for('ingredients.static', filename='ing1.png') }}"><img src="{{ url_for('ingredients.static', filename='ing1.png') }}" style="width:100%"></a></div>
+    <div class="grid-"><a href="{{ url_for('ingredients.static', filename='ing2.png') }}"><img src="{{ url_for('ingredients.static', filename='ing2.png') }}" style="width:100%"></a></div>
+    <div class="grid-"><a href="{{ url_for('ingredients.static', filename='ing3.png') }}"><img src="{{ url_for('ingredients.static', filename='ing3.png') }}" style="width:100%"></a></div>
+    <div class="grid-"><a href="{{ url_for('ingredients.static', filename='ing4.png') }}"><img src="{{ url_for('ingredients.static', filename='ing4.png') }}" style="width:100%"></a></div>
+    <div class="grid-"><a href="{{ url_for('ingredients.static', filename='ing5.png') }}"><img src="{{ url_for('ingredients.static', filename='ing5.png') }}" style="width:100%"></a></div>
+    <div class="grid-"><a href="{{ url_for('ingredients.static', filename='ing6.png') }}"><img src="{{ url_for('ingredients.static', filename='ing6.png') }}" style="width:100%"></a></div>
+    <div class="grid-"><a href="{{ url_for('ingredients.static', filename='ing7.png') }}"><img src="{{ url_for('ingredients.static', filename='ing7.png') }}" style="width:100%"></a></div>
+    <div class="grid-"><a href="{{ url_for('ingredients.static', filename='ing8.png') }}"><img src="{{ url_for('ingredients.static', filename='ing8.png') }}" style="width:100%"></a></div>
+    <div class="grid-"><a href="{{ url_for('ingredients.static', filename='ing9.png') }}"><img src="{{ url_for('ingredients.static', filename='ing9.png') }}" style="width:100%"></a></div>
 </div> 
 
 <aside>
     <p><center><strong>Currently Selected:</strong></center></p>
     <div class="grid2">
-        <div class="grid-"><a href="/static/ing1.png"><img src="/static/ing1.png" style="width:100%"></a></div>
-        <div class="grid-"><a href="/static/ing2.png"><img src="/static/ing2.png" style="width:100%"></a></div>
-        <div class="grid-"><a href="/static/ing3.png"><img src="/static/ing3.png" style="width:100%"></a></div>
-        <div class="grid-"><a href="/static/ing4.png"><img src="/static/ing4.png" style="width:100%"></a></div>
+        <div class="grid-"><img src="{{ url_for('ingredients.static', filename='ing4.png') }}" style="width:100%"></div>
+        <div class="grid-"><img src="{{ url_for('ingredients.static', filename='ing3.png') }}" style="width:100%"></div>
+        <div class="grid-"><img src="{{ url_for('ingredients.static', filename='ing9.png') }}" style="width:100%"></div>
+        <div class="grid-"><img src="{{ url_for('ingredients.static', filename='ing8.png') }}" style="width:100%"></div>
     </div> 
 </aside>
 
