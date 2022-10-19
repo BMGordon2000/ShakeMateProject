@@ -1,11 +1,33 @@
 {% extends 'base.html' %} 
 
 {% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='ingredientStyles.css') }}">
 <title>ShakeMate | Ingredient Selection</title>
 {% endblock %} 
 
 {% block body %}
-<h1><center>Ingredient Selection</center></h1>
+<nav id="top_nav">
+    <ul>
+        <li><h1><a href="/recipes">SHAKEMATE</a></h1></li>
+        <li style="float:right"><form action="/recipes"><button type="submit">Recipes</button></form></li>
+        <li style="float:right"><form action="/account"><button type="submit">Account</button></form></li>
+    </ul>
+</nav>
 
+<div class="grid">
+    <div class="grid-"><a href="/static/ing1.png"><img src="/static/ing1.png" style="width:100%"></a></div>
+    <div class="grid-"><a href="/static/ing2.png"><img src="/static/ing2.png" style="width:100%"></a></div>
+    <div class="grid-"><a href="/static/ing3.png"><img src="/static/ing3.png" style="width:100%"></a></div>
+    <div class="grid-"><a href="/static/ing4.png"><img src="/static/ing4.png" style="width:100%"></a></div>
+    <div class="grid-"><a href="/static/ing5.png"><img src="/static/ing5.png" style="width:100%"></a></div>
+    <div class="grid-"><a href="/static/ing6.png"><img src="/static/ing6.png" style="width:100%"></a></div>
+    <div class="grid-"><a href="/static/ing7.png"><img src="/static/ing7.png" style="width:100%"></a></div>
+    <div class="grid-"><a href="/static/ing8.png"><img src="/static/ing8.png" style="width:100%"></a></div>
+    <div class="grid-"><a href="/static/ing9.png"><img src="/static/ing9.png" style="width:100%"></a></div>
+</div> 
+
+<aside>
+    <p><center><strong>Currently Selected:</strong></center></p>
+</aside>
 
 {% endblock %}
