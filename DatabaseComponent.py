@@ -5,30 +5,11 @@
 from flask_login import UserMixin
 from __init__ import db
 
-
-
-# from shakemate import webapp
-# from flask_sqlalchemy import SQLAlchemy
-
-# db = SQLAlchemy(webapp)
-# app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db'
-# app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-# with app.app_context():
-#     db.create_all()
-
-class users(db.Model,UserMixin):
+class users(db.Model,UserMixin): ## creates the database table which stores the user login info
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100))
     email = db.Column(db.String(100))
     password = db.Column(db.String(80))
-
-
-
-
-
-
-
-
 
 
 

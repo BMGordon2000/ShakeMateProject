@@ -1,8 +1,8 @@
-from flask import Blueprint, render_template,flash,request,redirect,url_for
+from flask import Blueprint, render_template,flash,request,redirect,url_for,session
 from DatabaseComponent import users
 from werkzeug.security import generate_password_hash, check_password_hash
 from __init__ import db
-from flask_login import login_user,  current_user
+from flask_login import login_user, current_user, logout_user
 
 authentication = Blueprint("authentication", __name__,
                            static_folder="static", template_folder="templates")
@@ -17,7 +17,7 @@ def login():
         user = users.query.filter_by(email=email).first()
         if user:
             if check_password_hash(user.password, password):
-                flash('Logged in successfully!', category='success')
+                flash('Logged in was successfully!', category='success')
                 login_user(user, remember=True)
                 return redirect(url_for('account.Account'))
             else:
@@ -50,3 +50,7 @@ def signup():
 
     return render_template("signup.html", user=current_user)
 
+@authentication.route('/logout', methods=['POST', 'GET'])
+def logout():
+    logout_user()
+    return redirect(url_for('authentication.login'))

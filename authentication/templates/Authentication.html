@@ -5,6 +5,8 @@
 {% endblock %} 
 
 {% block body %}
+<p><a href="/signup">signup</a></p>
+
 <div class="column is-4 is-offset-4">
     <h3 class="title">Login</h3>
     <div class="box">
@@ -29,6 +31,12 @@
             </div>
             <button class="button is-block is-info is-large is-fullwidth">Login</button>
         </form>
+        <div class="remember">
+            <div class="col s5 offset-s1 right-align">
+                <input type="checkbox" class="with-gap" email="persist">
+                <label for="persist">Remember Me</label>
+            </div>
+        </div>
     </div>
 </div>
 {% endblock %}
