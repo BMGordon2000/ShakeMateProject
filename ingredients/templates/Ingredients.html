@@ -15,24 +15,18 @@
 </nav>
 
 <div class="grid">
-    <div class="grid-element"><a href="{{ url_for('ingredients.static', filename='ing1.png') }}"><img src="{{ url_for('ingredients.static', filename='ing1.png') }}" style="width:100%"></a></div>
-    <div class="grid-element"><a href="{{ url_for('ingredients.static', filename='ing2.png') }}"><img src="{{ url_for('ingredients.static', filename='ing2.png') }}" style="width:100%"></a></div>
-    <div class="grid-element"><a href="{{ url_for('ingredients.static', filename='ing3.png') }}"><img src="{{ url_for('ingredients.static', filename='ing3.png') }}" style="width:100%"></a></div>
-    <div class="grid-element"><a href="{{ url_for('ingredients.static', filename='ing4.png') }}"><img src="{{ url_for('ingredients.static', filename='ing4.png') }}" style="width:100%"></a></div>
-    <div class="grid-element"><a href="{{ url_for('ingredients.static', filename='ing5.png') }}"><img src="{{ url_for('ingredients.static', filename='ing5.png') }}" style="width:100%"></a></div>
-    <div class="grid-element"><a href="{{ url_for('ingredients.static', filename='ing6.png') }}"><img src="{{ url_for('ingredients.static', filename='ing6.png') }}" style="width:100%"></a></div>
-    <div class="grid-element"><a href="{{ url_for('ingredients.static', filename='ing7.png') }}"><img src="{{ url_for('ingredients.static', filename='ing7.png') }}" style="width:100%"></a></div>
-    <div class="grid-element"><a href="{{ url_for('ingredients.static', filename='ing8.png') }}"><img src="{{ url_for('ingredients.static', filename='ing8.png') }}" style="width:100%"></a></div>
-    <div class="grid-element"><a href="{{ url_for('ingredients.static', filename='ing9.png') }}"><img src="{{ url_for('ingredients.static', filename='ing9.png') }}" style="width:100%"></a></div>
+    {% for ingredients in ingredientList %}
+    <div class="grid-element"><a href="{{ url_for('ingredients.static', filename=ingredients["id"]|string+".png") }}"><img src="{{ url_for('ingredients.static', filename=ingredients["id"]|string+".png") }}" style="width:100%"></a></div>
+    {% endfor %}
 </div>
 
 <aside>
     <p><center><strong>Currently Selected:</strong></center></p>
     <div class="grid2">
-        <div class="grid-element"><img src="{{ url_for('ingredients.static', filename='ing4.png') }}" style="width:100%"></div>
-        <div class="grid-element"><img src="{{ url_for('ingredients.static', filename='ing3.png') }}" style="width:100%"></div>
-        <div class="grid-element"><img src="{{ url_for('ingredients.static', filename='ing9.png') }}" style="width:100%"></div>
-        <div class="grid-element"><img src="{{ url_for('ingredients.static', filename='ing8.png') }}" style="width:100%"></div>
+        <div class="grid-element"><img src="{{ url_for('ingredients.static', filename='4.png') }}" style="width:100%"></div>
+        <div class="grid-element"><img src="{{ url_for('ingredients.static', filename='3.png') }}" style="width:100%"></div>
+        <div class="grid-element"><img src="{{ url_for('ingredients.static', filename='9.png') }}" style="width:100%"></div>
+        <div class="grid-element"><img src="{{ url_for('ingredients.static', filename='8.png') }}" style="width:100%"></div>
     </div> 
 </aside>
 
