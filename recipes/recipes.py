@@ -17,8 +17,16 @@ recipes_list = [
     {"id": 11, "name": "Light yellow shake", "calories": 180, "fat": 8, "sugar": 5 },
     {"id": 12, "name": "White shake", "calories": 220, "fat": 10, "sugar": 12 },
     ]
+
 @recipes.route("/recipes")
 @recipes.route("/")
 def index():
     return render_template("Recipes.html", recipes_list = recipes_list)
+
+@recipes.route("/detailed/<int:recipe_id>")
+def recipe_detailed(recipe_id):
+    recipe = next((recipe for recipe in recipes if recipe["id"] == recipe_id), None)
+    if recipe is None:
+        abort(404, description="No recipe was found with the given ID")
+    return render_template("detailed.html", recipe = recipe)
 
