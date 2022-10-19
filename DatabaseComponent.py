@@ -1,9 +1,9 @@
 # Database Component
-
-from Shake import *
-from User import *
-from ingredients.Ingredient import *
-
+# from Shake import *
+# from User import *
+# from ingredients.Ingredient import *
+# from . import db
+# from flask_login import UserMixin
 
 
 
@@ -11,27 +11,21 @@ from ingredients.Ingredient import *
 # from flask_sqlalchemy import SQLAlchemy
 
 # db = SQLAlchemy(webapp)
-# webapp.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db'
-# webapp.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-# with webapp.app_context():
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db'
+# app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+# with app.app_context():
 #     db.create_all()
 
-# class users(db.Model):
+# class users(db.Model,UserMixin):
 #     id = db.Column(db.Integer, primary_key=True)
 #     name = db.Column(db.String(100))
 #     email = db.Column(db.String(100))
 #     password = db.Column(db.String(80))
 
-
-
-
-
-
-
-
-
-
-
+class users():
+    name = ['Admin']
+    email = ['Admin@gmail.com']
+    password = ['Admin']
 
 
 
