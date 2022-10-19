@@ -20,9 +20,9 @@ def create_app():
     from favorites.favorites import favorites
 
     app.register_blueprint(index, url_prefix="")
-    app.register_blueprint(recipes, url_prefix="")
-    app.register_blueprint(ingredients, url_prefix="") ### these registers the blueprints so they
-    app.register_blueprint(account, url_prefix="")     ### can be used in the app in differnt files
+    app.register_blueprint(recipes, url_prefix="/recipes")
+    app.register_blueprint(ingredients, url_prefix="/ingredients") ### these registers the blueprints so they
+    app.register_blueprint(account, url_prefix="/account")     ### can be used in the app in differnt files
     app.register_blueprint(authentication, url_prefix="")
     app.register_blueprint(favorites, url_prefix="")
 
