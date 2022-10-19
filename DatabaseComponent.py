@@ -2,8 +2,8 @@
 # from Shake import *
 # from User import *
 # from ingredients.Ingredient import *
-# from . import db
-# from flask_login import UserMixin
+from flask_login import UserMixin
+from __init__ import db
 
 
 
@@ -16,16 +16,14 @@
 # with app.app_context():
 #     db.create_all()
 
-# class users(db.Model,UserMixin):
-#     id = db.Column(db.Integer, primary_key=True)
-#     name = db.Column(db.String(100))
-#     email = db.Column(db.String(100))
-#     password = db.Column(db.String(80))
+class users(db.Model,UserMixin):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(100))
+    email = db.Column(db.String(100))
+    password = db.Column(db.String(80))
 
-class users():
-    name = ['Admin']
-    email = ['Admin@gmail.com']
-    password = ['Admin']
+
+
 
 
 

@@ -1,42 +1,52 @@
 from flask import Blueprint, render_template,flash,request,redirect,url_for
 from DatabaseComponent import users
-from werkzeug.security import generate_password_hash
+from werkzeug.security import generate_password_hash, check_password_hash
+from __init__ import db
+from flask_login import login_user,  current_user
 
 authentication = Blueprint("authentication", __name__,
                            static_folder="static", template_folder="templates")
 
 
-@authentication.route("/authenticate")
-@authentication.route("/", methods=['GET','POST'])
-def index():
-    if request.method == "POST":
-        username = request.form["username"]
-        password = request.form["password"]
-        
-        login = users.query.filter_by(username=username, password=password).first()
-        if login is not None:
-            return redirect(url_for("account.account"))
-        else:
-            flash("don't know you", category='error')
-    return render_template("Authentication.html")
+@authentication.route("/login", methods=['GET','POST'])
+def login():
+    if request.method == 'POST':
+        email = request.form.get('email')
+        password = request.form.get('password')
 
+        user = users.query.filter_by(email=email).first()
+        if user:
+            if check_password_hash(user.password, password):
+                flash('Logged in successfully!', category='success')
+                login_user(user, remember=True)
+                return redirect(url_for('account.Account'))
+            else:
+                flash('Incorrect password, try again.', category='error')
+        else:
+            flash('Email does not exist or was typed in wrong.', category='error')
+
+    return render_template("Authentication.html", user=current_user)    
 
 
 @authentication.route('/signup', methods=['GET', 'POST'])
 def signup(): 
-    if request.method=='GET': 
-        return render_template('signup.html')
-    else: 
+    if request.method == 'POST':
         email = request.form.get('email')
         name = request.form.get('name')
         password = request.form.get('password')
-        user = users.query.filter_by(email=email).first() 
-        if user: 
-            flash('Email address already exists')
-            return redirect(url_for('authentication.signup'))
 
-        new_user = users(email=email, name=name, password=generate_password_hash(password, method='sha256')) #
 
-        db.session.add(new_user)
-        db.session.commit()
-        return redirect(url_for('Authentication.authenticate'))
+        user = users.query.filter_by(email=email).first()
+        if user:
+            flash('Email has already been created.', category='error')
+        else:
+            new_user = users(email=email, name=name, password=generate_password_hash(
+                password, method='sha256'))
+            db.session.add(new_user)
+            db.session.commit()
+            login_user(new_user, remember=True)
+            flash('Account has been created!', category='success')
+            return redirect(url_for('authentication.login'))
+
+    return render_template("signup.html", user=current_user)
+
