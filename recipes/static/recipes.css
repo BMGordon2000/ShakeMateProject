@@ -8,3 +8,7 @@
 th {
     font-size: larger;
 }
+
+li {
+    list-style: none;
+}
