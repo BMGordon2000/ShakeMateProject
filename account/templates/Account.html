@@ -1,14 +1,11 @@
 {% extends 'base.html' %} 
 
 {% block head %}
-<title>ShakeMate</title>
+<link rel="stylesheet" href="{{ url_for('account.static', filename='accountStyles.css') }}">
+<title>ShakeMate | Account</title>
 {% endblock %} 
 
 {% block body %}
-<h1><center>
-    {{ current_user.name }}'s Account Page
-</center></h1>
-
-<a href={{ url_for('authentication.logout') }}>Logout</a>
+<h1>{{ current_user.name }}'s Account Page</h1>
 
 {% endblock %}

@@ -1,0 +1,54 @@
+/* Every page default */
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+/* nav bar */
+nav{
+    width: 100%;
+    height: 10%;
+    line-height: 75px;
+    padding: 0% 3.5%;
+    position: fixed;
+    box-sizing: border-box;
+    background-image: linear-gradient(#033747, #012733);
+    font-family: Arial, sans-serif;
+}
+/* shakemate logo and or text on left side nav bar */
+nav .logo p{
+    font-size: 30px;
+    font-weight: bold;
+    float: left;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    cursor: pointer;
+    color: white;
+    text-decoration: none;
+}
+/* Nav list goes to right side */
+nav ul{
+    float: right;
+}
+/* Nav list style */
+nav li {
+    display: inline-block;
+    list-style: none;
+}
+nav li a {
+    font-size: 18px;
+    text-transform: uppercase;
+    padding:0px 30px;
+    color: white;
+    text-decoration: none;
+}
+nav li a:hover{
+    color: #ff8c69;
+    transition: all 0.4s ease 0s;
+}
+/* Nav bar padding 
+!!body content will go inside of nav bar on every page without this!!
+*/
+body .NavBarPadding {
+    padding-top: 5%;
+}
