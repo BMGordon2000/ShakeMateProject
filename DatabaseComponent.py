@@ -11,9 +11,12 @@ class users(db.Model,UserMixin): ## creates the database table which stores the 
     email = db.Column(db.String(100))
     password = db.Column(db.String(80))
 
-#class ingredientsTable(db.Model):
-    #id = db.Column(db.Integer, primary_key=True)
-    #name = db.Column(db.String(100))
+class ingredientsTable(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(100))
+
+    def __repr__(self):
+        return '<Ingredient: {}>'.format(self.name)
 
 # def IngredientInfo(filter: List[Ingredient]) -> List[Ingredient]:
 #     """
