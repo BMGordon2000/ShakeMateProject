@@ -1,7 +1,7 @@
 from stat import S_IWUSR
 from flask import Blueprint, render_template
-from DatabaseComponent import ingredients
-from __init__ import db
+#from DatabaseComponent import ingredientsTable
+#from __init__ import db
 
 ingredients = Blueprint("ingredients", __name__, static_folder="static", template_folder="templates")
 
@@ -17,6 +17,12 @@ ingredientList = [
     {'id': 8, 'name': 'Peanuts', 'caloricData': 828, 'fat': 71.9, 'sugar': 5.8},
     {'id': 9, 'name': 'Strawberries', 'caloricData': 49, 'fat': 0.5, 'sugar': 7.4}
 ]
+
+#for i in range(len(ingredientList)):
+    #new_ingredient = ingredientsTable(name=ingredientList[i].get("name"))
+    #print(ingredientList[i].get("name"))
+    #db.session.add(new_ingredient)
+    #db.session.commit()
 
 
 @ingredients.route("/ingredients")
