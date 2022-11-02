@@ -10,18 +10,18 @@ class users(db.Model,UserMixin): ## creates the database table which stores the 
     name = db.Column(db.String(100))
     email = db.Column(db.String(100))
     password = db.Column(db.String(80))
-    ingredients = db.relationship('ingredient')
+    # ingredients = db.relationship('ingredient')
 
-class ingredient(db.Model, UserMixin):
-    id = db.Column(db.Integer, primary_key=True)
-    #data = db.Column(db.String(10000))
-    ingname = db.Column(db.String(100))
-    fat = db.Column(db.Integer)
-    #fat = db.Column(db.Integer)
-    #user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+# class ingredient(db.Model, UserMixin):
+#     id = db.Column(db.Integer, primary_key=True)
+#     #data = db.Column(db.String(10000))
+#     ingname = db.Column(db.String(100))
+#     fat = db.Column(db.Integer)
+#     #fat = db.Column(db.Integer)
+#     #user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
-    def __repr__(self):
-         return f"ingredient('{self.ingname}','{self.id}','{self.fat}')"
+#     def __repr__(self):
+#          return f"ingredient('{self.ingname}','{self.id}','{self.fat}')"
 
 
 # def IngredientInfo(filter: List[Ingredient]) -> List[Ingredient]:
