@@ -17,7 +17,7 @@ def login():
         user = User.query.filter_by(email=email).first()
         if user:
             if check_password_hash(user.password, password):
-                flash('Logged in was successfully!', category='success')
+                flash('Logged in was successful!', category='success')
                 login_user(user, remember=True)
                 return redirect(url_for('account.Account'))
             else:
@@ -34,11 +34,19 @@ def signup():
         email = request.form.get('email')
         name = request.form.get('name')
         password = request.form.get('password')
-
+        secondpassword = request.form.get('secondpassword')
 
         user = User.query.filter_by(email=email).first()
         if user:
-            flash('Email has already been created.', category='error')
+            flash('Email already exists.', category='error')
+        elif len(email) < 4:
+            flash('Email must be greater than 3 characters.', category='error')
+        elif len(name) < 2:
+            flash('First name must be greater than 1 character.', category='error')
+        elif password != secondpassword:
+            flash('Passwords do not match.', category='error')
+        elif len(secondpassword) < 7:
+            flash('Password must be at least 7 characters.', category='error')
         else:
             new_user = User(name=name, email=email, password=generate_password_hash(
                 password, method='sha256'))
