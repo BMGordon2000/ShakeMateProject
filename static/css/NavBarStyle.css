@@ -2,7 +2,6 @@
 *{
     margin: 0px;
     padding: 0px;
-    box-sizing: border-box;
 }
 
 /* nav bar */
@@ -17,7 +16,7 @@ nav{
     letter-spacing: 1.5px;
     color: whitesmoke;
 }
-nav li a {
+.nav-item {
     font-size: 15px;
     text-transform: uppercase;
     color: whitesmoke;
