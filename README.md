@@ -19,7 +19,13 @@
 ---
 
 ## Setting up flask in Visual Studio Code
-
-1. In the VS code terminal, enter: `pip3 install flask flask-sqlalchemy`, `pip install flask-login`
-2. Once `import flask from Flask` has been implemented in your code, make sure it is working by running the following code in the VS code terminal: `python3 shakemate.py` or `py shakemate.py` if you are running on windows 11
-3. The previous step will display a local host id that serves as a link to the page. You can also manually type in the host id into the url.
+1. Set up the FLASK_APP environment variable. In the Terminal:
+   - On Windows: `set FLASK_APP=main.py`
+   - On Mac/Linux: `export FLASK_APP=main.py`
+2. With the virtualenv activated, run `pip install -r requirements.txt`
+    - This will install ALL of the libraries in the requirements.txt file.
+    - If you need to add a new library later, do `pip install ...` like normal, then do `pip freeze > requirements.txt` to update the library dependencies.
+2. Run `flask db upgrade`
+    - this will create a database file in `instance/test.db`. You can open this file with a SQLite Browser and look at the tables.
+    - If you update a database model (e.g., DatabaseComponent.User), you must run `flask db migrate` and then `flask db upgrade` in the Terminal for the changes to show in the database file.
+3. Run `flask run` in the Terminal. You will see a URL that you can browse to show the app.
