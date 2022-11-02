@@ -1,22 +1,26 @@
-{% extends 'base.html' %} 
+{% extends 'base.html' %}{% block title %}ShakeMate Login{% endblock %}
 
 {% block head %}
-<title>ShakeMate Login</title>
+<!-- <title>ShakeMate Login</title> -->
+<style>
+    #signUpText {
+        font-size: 80%;
+    }
+</style>
 {% endblock %} 
 
 {% block body %}
-<p align="center"><a href="/signup">signup</a></p>
-
 <div class="column is-4 is-offset-4" align="center">
+    <br />
     <h3 class="title">Login</h3>
     <div class="box">
-        {% with messages = get_flashed_messages() %}
+        <!-- {% with messages = get_flashed_messages() %}
             {% if messages %}
                 <div class="notification is-danger">
                     {{ messages[0] }}
                 </div>
             {% endif %}
-        {% endwith %}
+        {% endwith %} -->
         <form method="POST" action="/login">
             <div class="field">
                 <div class="control">
@@ -38,6 +42,7 @@
                 <label for="persist">Remember Me</label>
             </div>
         </div>
+            <p align="center" id="signUpText"> Don't have an account?<br /><a href="/signup">Sign Up</a></p>
     </div>
 </div>
 {% endblock %}

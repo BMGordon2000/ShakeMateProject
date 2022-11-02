@@ -1,12 +1,17 @@
-{% extends 'base.html' %} 
+{% extends 'base.html' %}{% block title %}ShakeMate Sign Up{% endblock %}
 
 {% block head %}
-<title>ShakeMate Sign Up</title>
+<!-- <title>ShakeMate Sign Up</title> -->
+<style>
+    p {
+        font-size: 80%;
+    }
+</style>
 {% endblock %} 
 
 {% block body %}
-<p><a href="/login">login</a></p>
 <div class="column is-4 is-offset-4" align="center">
+    <br />
     <h3 class="title">Sign Up</h3>
     <div class="box">
         <form method="POST" action="/signup">
@@ -33,6 +38,8 @@
             <br />
             <button type="submit" class="button btn-primary is-block is-info is-large is-fullwidth">Sign Up</button>
         </form>
+        <br /> 
+        <p align="center" id="signUpText"> Already have an account?<br /><a href="/login">Login instead</a></p>
     </div>
 </div>
 {% endblock %}
