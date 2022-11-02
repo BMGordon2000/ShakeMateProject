@@ -34,7 +34,7 @@ def signup():
         email = request.form.get('email')
         name = request.form.get('name')
         password = request.form.get('password')
-        secondpassword = request.form.get('password')
+        secondpassword = request.form.get('secondpassword')
 
         user = users.query.filter_by(email=email).first()
         if user:
