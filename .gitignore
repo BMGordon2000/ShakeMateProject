@@ -1,7 +1,11 @@
 *.log
 venv/
-
+.venv/
+instance/
 .env
+.idea/
+
+
 
 *.iws
 
