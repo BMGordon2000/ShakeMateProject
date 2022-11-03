@@ -1,4 +1,3 @@
-from nis import cat
 from flask import Blueprint, render_template,flash,request,redirect,url_for,session
 from app.DatabaseComponent import User
 from werkzeug.security import generate_password_hash, check_password_hash
