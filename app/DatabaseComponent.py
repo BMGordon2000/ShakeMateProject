@@ -15,6 +15,13 @@ class User(db.Model, UserMixin): ## creates the database table which stores the 
     def __repr__(self):
         return f'User(id={self.id}, name={self.name}, email={self.email}, password={self.password})'
 
+class ingredients_table(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(100))
+
+    def __repr__(self):
+        return f'Ingredient(id={self.id}, name={self.name})'
+
 
 
 # def IngredientInfo(filter: List[Ingredient]) -> List[Ingredient]:
