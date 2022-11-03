@@ -1,21 +1,85 @@
-{% extends 'base.html' %} 
+{% extends 'base.html' %}{% block title %}ShakeMate Home{% endblock %}
 
 {% block head %}
-<title>ShakeMate</title>
+<!-- <title>ShakeMate</title> -->
+<style>
+    footer {
+        font-size: 80%;
+    }
+    a:hover, a:focus {
+    color: white;
+    text-decoration: none;
+    }
+    a:link, a:visited {
+    color: black;
+    }
+    .fullclick li {
+  list-style: none;
+  margin: 1em 0;
+  padding: 20px 10px;
+  background: #2b2b2b;
+  position: relative;
+}
+.fullclick a.main {
+  color: #85baff;
+  text-align: right;
+  display: block;
+  z-index: 1;
+}
+.fullclick li a.main::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  content: ' ';
+}
+
+ #div1 a {
+  display: block;
+  margin: 1% 0;
+  width: 20%;
+  text-align: center;
+  font-size: 1.5em;
+  border: 1px solid rgb(101, 151, 101);
+  border-radius: 7px;
+  background-color: rgb(158, 158, 255);
+  padding: 0.25em 0;
+ }
+ #div2 a {
+  display: block;
+  margin: 1% 0;
+  width: 20%;
+  text-align: center;
+  font-size: 1.5em;
+  border: 1px solid rgb(101, 151, 101);
+  border-radius: 7px;
+  background-color: rgb(88, 87, 255);
+  color: rgb(241, 255, 241);
+  padding: 0.25em 0;
+ }
+ #wrapper {
+  display: flex;
+  justify-content: center;
+}
+</style>
 {% endblock %}
 
 {% block body %}
-<h1>Welcome to the ShakeMate project. Created by:</h1>
-<p>Program Manager: Bryson Harllee</p>
-<p>Lead Developer: Andrew Bracero</p>
-<p>Developer: Drake Kvaall</p>
-<p>Developer: Ben Gordon</p>
-<p>Developer: Trafton Reynolds</p>
-<p><a href="/recipes">Recipe Selection</a></p>
-<p><a href="/ingredients">Ingredient Selection</a></p>
-<p><a href="/account">Account Page</a></p>
-<p><a href="/login">Login Page</a></p>
-<p><a href="/signup">Sign Up Page</a></p>
+<h1 align="center">Welcome to the ShakeMate Project</h1>
+<div align="center" id="div1"><a href="/recipes">Recipe Selection</a></div>
+<div align="center" id="div2"><a href="/ingredients">Ingredient Selection</a></div>
+<div align="center" id="div1"><a href="/account">Account Page</a></div>
+<div align="center" id="div2"><a href="/login">Login</a></div>
+<div align="center" id="div1"><a href="/signup">Sign Up</a></div>
+</br>
+<div id="wrapper">
+  <button type="submit" class="btn btn-primary"><a href="/Fav_Hist">Favorites and history component</a></button>
+</div>
+</br>
 
-
+<footer align = "center">
+    Created by: 
+    <br>Program Manager: Bryson Harllee | Lead Developer: Andrew Bracero | Developer: Drake Kvaall | Developer: Ben Gordon | Developer: Trafton Reynolds
+</footer>
 {% endblock %}

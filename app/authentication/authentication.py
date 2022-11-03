@@ -36,6 +36,7 @@ def signup():
         password = request.form.get('password')
         secondpassword = request.form.get('secondpassword')
 
+
         user = User.query.filter_by(email=email).first()
         if user:
             flash('Email already exists.', category='error')
@@ -48,7 +49,7 @@ def signup():
         elif len(secondpassword) < 7:
             flash('Password must be at least 7 characters.', category='error')
         else:
-            new_user = User(name=name, email=email, password=generate_password_hash(
+            new_user = User(email=email, name=name, password=generate_password_hash(
                 password, method='sha256'))
             db.session.add(new_user)
             db.session.commit()
