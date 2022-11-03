@@ -79,9 +79,7 @@ def create_app():
                 u = User(name="Bob", email="bob@abc.com", password="abc123")
                 db.session.add(u)
                 db.session.commit()
-
-                print(
-                    "The user is added. Inspect the database file or re-run the app to see it.")
+                print("The user is added. Inspect the database file or re-run the app to see it.")
 
         # Make sure the table exists before doing anything with it
         if not inspector.has_table('recipe_table'):
@@ -124,11 +122,10 @@ def create_app():
                         "calories": 220, "fat": 10, "sugar": 12},
                 ]
                 for i in range(len(recipes_list)):
-                    new_recipe = recipe_table(name=recipes_list[i].get("name"), calories=calories_list[i].get("calories"),
+                    new_recipe = recipe_table(name=recipes_list[i].get("name"), calories=recipes_list[i].get("calories"),
                                               fat=recipes_list[i].get("fat"), sugar=recipes_list[i].get("sugar"))
                     db.session.add(new_recipe)
                 db.session.commit()
-
                 print("The user is added. Inspect the database file or re-run the app to see it.")
         
 
@@ -162,8 +159,8 @@ def create_app():
 
 
 
-    #
-    # with app.app_context():
-    #     db.create_all()
+    
+    with app.app_context():
+        db.create_all()
 
     return app
