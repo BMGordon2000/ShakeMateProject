@@ -23,6 +23,24 @@ class ingredients_table(db.Model):
         return f'Ingredient(id={self.id}, name={self.name})'
 
 
+class ingredients_table(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(100))
+
+    def __repr__(self):
+        return f'Ingredient(id={self.id}, name={self.name})'
+
+
+class recipe_table(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(100))
+    calories = db.Column(db.String(100))
+    fat = db.Column(db.String(100))
+    sugar = db.Column(db.String(100))
+
+    def __repr__(self):
+        return f'Recipe(id={self.id}, name={self.name}, calories={self.calories}, fat={self.fat}, sugar={self.sugar})'
+
 
 # def IngredientInfo(filter: List[Ingredient]) -> List[Ingredient]:
 #     """
