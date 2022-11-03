@@ -43,6 +43,8 @@ def create_app():
     @login_manager.user_loader
     def load_user(id):
         return DatabaseComponent.User.query.get(int(id)) # loads the users id which contain the emails, names and passwords.
+    
+    
     from app.DatabaseComponent import User
     from app.DatabaseComponent import ingredients_table
     from app.DatabaseComponent import recipe_table
