@@ -6,13 +6,6 @@
 {% endblock %} 
 
 {% block body %}
-<nav id="top_nav">
-    <ul>
-        <li><h1><a href="/recipes">SHAKEMATE</a></h1></li>
-        <li style="float:right"><form action="/recipes"><button type="submit">Recipes</button></form></li>
-        <li style="float:right"><form action="/account"><button type="submit">Account</button></form></li>
-    </ul>
-</nav>
 
 <div class="grid">
     {% for ingredients in ingredientList %}
@@ -26,7 +19,6 @@
         <div class="grid-element"><img src="{{ url_for('ingredients.static', filename='4.png') }}" style="width:100%"></div>
         <div class="grid-element"><img src="{{ url_for('ingredients.static', filename='3.png') }}" style="width:100%"></div>
         <div class="grid-element"><img src="{{ url_for('ingredients.static', filename='9.png') }}" style="width:100%"></div>
-        <div class="grid-element"><img src="{{ url_for('ingredients.static', filename='8.png') }}" style="width:100%"></div>
     </div> 
 </aside>
 

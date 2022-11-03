@@ -79,6 +79,7 @@ def create_app():
                 u = User(name="Bob", email="bob@abc.com", password="abc123")
                 db.session.add(u)
                 db.session.commit()
+
                 print(
                     "The user is added. Inspect the database file or re-run the app to see it.")
 
@@ -127,6 +128,39 @@ def create_app():
                                               fat=recipes_list[i].get("fat"), sugar=recipes_list[i].get("sugar"))
                     db.session.add(new_recipe)
                 db.session.commit()
+
+                print("The user is added. Inspect the database file or re-run the app to see it.")
+        
+
+        if not inspector.has_table('ingredients_table'):    # Make sure the table exists before doing anything with it
+            print("Ingredient table does not exist! did you run 'flask db upgrade' from the terminal?")
+        else:
+            current_ingredients = ingredients_table.query.all()
+            # First, check to see if there is already data. If so, do not add your initial data.
+            if current_ingredients:
+                print("The ingredient table already exists! Printing all ingredients...")
+                for i in current_ingredients:
+                    print(f'\t{i}')
+                print("I printed them!")
+            else:
+                print("No ingredients detected. Adding them")
+                ingredientList = [
+                    {'id': 1, 'name': 'Bananas'},
+                    {'id': 2, 'name': 'Blueberries'},
+                    {'id': 3, 'name': 'Cherries'},
+                    {'id': 4, 'name': 'Kale'},
+                    {'id': 5, 'name': 'Mangoes'},
+                    {'id': 6, 'name': 'Oats'},
+                    {'id': 7, 'name': 'Peaches'},
+                    {'id': 8, 'name': 'Peanuts'},
+                    {'id': 9, 'name': 'Strawberries'}
+                ]
+                for i in range(len(ingredientList)):
+                    new_ingredient = ingredients_table(name=ingredientList[i].get("name"))
+                    db.session.add(new_ingredient)
+                db.session.commit()
+
+
 
     #
     # with app.app_context():
