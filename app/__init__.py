@@ -126,7 +126,7 @@ def create_app():
                                               fat=recipes_list[i].get("fat"), sugar=recipes_list[i].get("sugar"))
                     db.session.add(new_recipe)
                 db.session.commit()
-                print("The user is added. Inspect the database file or re-run the app to see it.")
+                print("The recipes are added. Inspect the database file or re-run the app to see it.")
         
 
         if not inspector.has_table('ingredients_table'):    # Make sure the table exists before doing anything with it
@@ -156,7 +156,7 @@ def create_app():
                     new_ingredient = ingredients_table(name=ingredientList[i].get("name"))
                     db.session.add(new_ingredient)
                 db.session.commit()
-
+                print("The ingredients are added. Inspect the database file or re-run the app to see it.")
 
 
     
