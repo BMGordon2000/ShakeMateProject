@@ -15,6 +15,14 @@ class User(db.Model, UserMixin): ## creates the database table which stores the 
     def __repr__(self):
         return f'User(id={self.id}, name={self.name}, email={self.email}, password={self.password})'
 
+
+
+
+filter_table = db.Table(
+    db.Column('recipe_table_id', db.Integer(), db.ForeignKey('recipe_table.id')),
+    db.Column('ingredients_table_id', db.Integer(), db.ForeignKey('ingredients_table.id'))
+     )
+
 class ingredients_table(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100))
