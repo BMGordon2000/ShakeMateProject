@@ -2,22 +2,8 @@
 
 {% block head %}
 <link rel="stylesheet" href="{{ url_for('ingredients.static', filename='ingredientStyles.css') }}">
+<script src="{{ url_for('ingredients.static', filename='ingredientScript.js') }}" defer></script>
 <title>ShakeMate | Ingredient Selection</title>
-<script>
-    function allowDrop(ev) {
-      ev.preventDefault();
-    }
-    
-    function drag(ev) {
-      ev.dataTransfer.setData("text", ev.target.id);
-    }
-    
-    function drop(ev) {
-      ev.preventDefault();
-      var data = ev.dataTransfer.getData("text");
-      ev.target.appendChild(document.getElementById(data));
-    }
-</script>
 {% endblock %} 
 
 {% block body %}
