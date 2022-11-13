@@ -18,10 +18,10 @@ class User(db.Model, UserMixin): ## creates the database table which stores the 
 
 
 
-filter_table = db.Table(
-    db.Column('recipe_table_id', db.Integer(), db.ForeignKey('recipe_table.id')),
-    db.Column('ingredients_table_id', db.Integer(), db.ForeignKey('ingredients_table.id'))
-     )
+# filter_table = db.Table(
+#     db.Column('recipe_table_id', db.Integer(), db.ForeignKey('recipe_table.id')),
+#     db.Column('ingredients_table_id', db.Integer(), db.ForeignKey('ingredients_table.id'))
+#      )
 
 class ingredients_table(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -36,6 +36,7 @@ class recipe_table(db.Model):
     calories = db.Column(db.String(100))
     fat = db.Column(db.String(100))
     sugar = db.Column(db.String(100))
+    ingName = db.Column(db.String(100))
 
     def __repr__(self):
-        return f'Recipe(id={self.id}, name={self.name}, calories={self.calories}, fat={self.fat}, sugar={self.sugar})'
+        return f'Recipe(id={self.id}, name={self.name}, calories={self.calories}, fat={self.fat}, sugar={self.sugar}, ingName={self.ingName})'

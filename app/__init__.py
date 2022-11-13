@@ -97,33 +97,33 @@ def create_app():
                 print("No recipes detected. Adding them")
                 recipes_list = [
                     {"id": 1, "name": "Brown shake with nuts",
-                        "calories": 250, "fat": 8, "sugar": 9},
+                        "calories": 250, "fat": 8, "sugar": 9, "ingName": "Peanuts"},
                     {"id": 2, "name": "Brown shake",
-                        "calories": 235, "fat": 7, "sugar": 7},
+                        "calories": 235, "fat": 7, "sugar": 7, "ingName": "Oats"},
                     {"id": 3, "name": "Dark green shake",
-                        "calories": 60, "fat": 1, "sugar": 2},
+                        "calories": 60, "fat": 1, "sugar": 2, "ingName": "Kale"},
                     {"id": 4, "name": "Dark orange shake",
-                        "calories": 120, "fat": 4, "sugar": 4},
+                        "calories": 120, "fat": 4, "sugar": 4, "ingName": "Mangoes"},
                     {"id": 5, "name": "Dark purple shake",
-                        "calories": 130, "fat": 7, "sugar": 6},
+                        "calories": 130, "fat": 7, "sugar": 6, "ingName": "Blueberries"},
                     {"id": 6, "name": "Dark red shake",
-                        "calories": 145, "fat": 2, "sugar": 7},
+                        "calories": 145, "fat": 2, "sugar": 7, "ingName": "Strawberries"},
                     {"id": 7, "name": "Light green shake",
-                        "calories": 90, "fat": 1, "sugar": 1},
+                        "calories": 90, "fat": 1, "sugar": 1, "ingName": "Kale"},
                     {"id": 8, "name": "Light orange shake",
-                        "calories": 160, "fat": 7, "sugar": 9},
+                        "calories": 160, "fat": 7, "sugar": 9, "ingName": "Mangoes"},
                     {"id": 9, "name": "Light purple shake",
-                        "calories": 140, "fat": 5, "sugar": 4},
+                        "calories": 140, "fat": 5, "sugar": 4, "ingName": "Cherries"},
                     {"id": 10, "name": "Light red shake",
-                        "calories": 145, "fat": 4, "sugar": 3},
+                        "calories": 145, "fat": 4, "sugar": 3, "ingName": "Strawberries"},
                     {"id": 11, "name": "Light yellow shake",
-                        "calories": 180, "fat": 8, "sugar": 5},
+                        "calories": 180, "fat": 8, "sugar": 5, "ingName": "Peaches"},
                     {"id": 12, "name": "White shake",
-                        "calories": 220, "fat": 10, "sugar": 12},
+                        "calories": 220, "fat": 10, "sugar": 12, "ingName": "Bananas"},
                 ]
                 for i in range(len(recipes_list)):
                     new_recipe = recipe_table(name=recipes_list[i].get("name"), calories=recipes_list[i].get("calories"),
-                                              fat=recipes_list[i].get("fat"), sugar=recipes_list[i].get("sugar"))
+                                              fat=recipes_list[i].get("fat"), sugar=recipes_list[i].get("sugar"), ingName=recipes_list[i].get("ingName"))
                     db.session.add(new_recipe)
                 db.session.commit()
                 print("The recipes are added. Inspect the database file or re-run the app to see it.")
