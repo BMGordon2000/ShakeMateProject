@@ -11,9 +11,14 @@ class User(db.Model, UserMixin): ## creates the database table which stores the 
     name = db.Column(db.String(100))
     email = db.Column(db.String(100))
     password = db.Column(db.String(80))
+    favorites = db.relationship('favorites_list', backref='User')
 
     def __repr__(self):
         return f'User(id={self.id}, name={self.name}, email={self.email}, password={self.password})'
+
+class favorites_list(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
 class ingredients_table(db.Model):
     id = db.Column(db.Integer, primary_key=True)
