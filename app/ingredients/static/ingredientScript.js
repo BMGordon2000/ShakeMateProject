@@ -1,23 +1,13 @@
-var selectedItem =[]
-
-function allowDrop(event) {
-    event.preventDefault();
+function allowDrop(ev) {
+    ev.preventDefault();
 }
 
-function drag(event) {
-    event.dataTransfer.setData("text", event.target.id);
+function drag(ev) {
+    ev.dataTransfer.setData("text", ev.target.id);
 }
 
-function drop(event) {
-
-    selected=document.getElementById("selected")
-    event.preventDefault();
-    var data = event.dataTransfer.getData("text");
-    if (!selectedItem.includes(data)){
-        selectedItem.push(data);
-    }
-
-    console.log(selectedItem)
-
-    selected.innerHTML += document.getElementById(data).outerHTML;
+function drop(ev) {
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("text");
+    ev.target.appendChild(document.getElementById(data));
 }
