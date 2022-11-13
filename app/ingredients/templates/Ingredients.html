@@ -9,15 +9,9 @@
 {% block body %}
 
 <div class="grid">
-    <div class="grid-element"><img id=1 src="{{ url_for('ingredients.static', filename='Bananas.png') }}" draggable="true" ondragstart="drag(event)" style="width:100%"></div>
-    <div class="grid-element"><img id=2 src="{{ url_for('ingredients.static', filename='Blueberries.png') }}" draggable="true" ondragstart="drag(event)" style="width:100%"></div>
-    <div class="grid-element"><img id=3 src="{{ url_for('ingredients.static', filename='Cherries.png') }}" draggable="true" ondragstart="drag(event)" style="width:100%"></div>
-    <div class="grid-element"><img id=4 src="{{ url_for('ingredients.static', filename='Kale.png') }}" draggable="true" ondragstart="drag(event)" style="width:100%"></div>
-    <div class="grid-element"><img id=5 src="{{ url_for('ingredients.static', filename='Mangoes.png') }}" draggable="true" ondragstart="drag(event)" style="width:100%"></div>
-    <div class="grid-element"><img id=6 src="{{ url_for('ingredients.static', filename='Oats.png') }}" draggable="true" ondragstart="drag(event)" style="width:100%"></div>
-    <div class="grid-element"><img id=7 src="{{ url_for('ingredients.static', filename='Peaches.png') }}" draggable="true" ondragstart="drag(event)" style="width:100%"></div>
-    <div class="grid-element"><img id=8 src="{{ url_for('ingredients.static', filename='Peanuts.png') }}" draggable="true" ondragstart="drag(event)" style="width:100%"></div>
-    <div class="grid-element"><img id=9 src="{{ url_for('ingredients.static', filename='Strawberries.png') }}" draggable="true" ondragstart="drag(event)" style="width:100%"></div>
+    {% for ingredients in ingredientList %}
+    <div class="grid-element"><img id="ingredients["name"]" src="{{ url_for('ingredients.static', filename=ingredients["name"]|string+".png") }}" draggable="true" ondragstart="drag(event)" style="width:100%"></div>
+    {% endfor %}
 </div>
 
 <aside>
