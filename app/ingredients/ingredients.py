@@ -8,4 +8,5 @@ ingredients = Blueprint("ingredients", __name__, static_folder="static", templat
 @ingredients.route("/")
 def index():
     ingredientList = ingredients_table.query.order_by(ingredients_table.id).all()
+    print(ingredientList)
     return render_template("Ingredients.html", ingredientList = ingredientList)

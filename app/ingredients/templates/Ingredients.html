@@ -3,23 +3,34 @@
 {% block head %}
 <link rel="stylesheet" href="{{ url_for('ingredients.static', filename='ingredientStyles.css') }}">
 <title>ShakeMate | Ingredient Selection</title>
+<script>
+    function allowDrop(ev) {
+      ev.preventDefault();
+    }
+    
+    function drag(ev) {
+      ev.dataTransfer.setData("text", ev.target.id);
+    }
+    
+    function drop(ev) {
+      ev.preventDefault();
+      var data = ev.dataTransfer.getData("text");
+      ev.target.appendChild(document.getElementById(data));
+    }
+</script>
 {% endblock %} 
 
 {% block body %}
 
 <div class="grid">
     {% for ingredients in ingredientList %}
-    <div class="grid-element"><a href="{{ url_for('ingredients.static', filename=ingredients["id"]|string+".png") }}"><img src="{{ url_for('ingredients.static', filename=ingredients["id"]|string+".png") }}" style="width:100%"></a></div>
+    <div class="grid-element"><img id="ingredients["name"]" src="{{ url_for('ingredients.static', filename=ingredients["name"]|string+".png") }}" draggable="true" ondragstart="drag(event)" style="width:100%"></div>
     {% endfor %}
 </div>
 
 <aside>
     <p><center><strong>Currently Selected:</strong></center></p>
-    <div class="grid2">
-        <div class="grid-element"><img src="{{ url_for('ingredients.static', filename='4.png') }}" style="width:100%"></div>
-        <div class="grid-element"><img src="{{ url_for('ingredients.static', filename='3.png') }}" style="width:100%"></div>
-        <div class="grid-element"><img src="{{ url_for('ingredients.static', filename='9.png') }}" style="width:100%"></div>
-    </div> 
+    <div class="grid2" ondrop="drop(event)" ondragover="allowDrop(event)"></div> 
 </aside>
 
 {% endblock %}
