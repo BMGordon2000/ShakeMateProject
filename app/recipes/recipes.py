@@ -1,6 +1,7 @@
 from stat import S_IWUSR
-from flask import Blueprint, render_template
-from app.DatabaseComponent import recipe_table
+from flask import Blueprint, render_template,flash,request,redirect,url_for,session
+from app.DatabaseComponent import recipe_table, User
+from flask_login import current_user
 
 recipes = Blueprint("recipes", __name__,
                     static_folder="static", template_folder="templates")
@@ -24,9 +25,15 @@ recipes = Blueprint("recipes", __name__,
 
 
 @recipes.route("/recipes")
-@recipes.route("/")
+@recipes.route("/", methods=["GET", "POST"])
 def index():
-    recipes_list = recipe_table.query.order_by(recipe_table.id).all()   
+    recipes_list = recipe_table.query.order_by(recipe_table.id).all()
+    # if request.method == 'POST':
+    #     favorite = request.form.get('favorites')
+
+    #     favoriteList = favorites_list.query.filter_by(user_id=current_user.id).first()
+        
+
 
     return render_template("Recipes.html", recipes_list=recipes_list)
 

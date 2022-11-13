@@ -12,3 +12,12 @@ th {
 li {
     list-style: none;
 }
+tr td{
+    padding-block: 5%;
+    padding-left: 5%;
+}
+
+tr th{
+    padding-block: 5%;
+    padding-left: 5%;
+}
