@@ -1,7 +1,8 @@
 from stat import S_IWUSR
 from flask import Blueprint, render_template,flash,request,redirect,url_for,session, request
-from app.DatabaseComponent import recipe_table, User
-from flask_login import current_user, ingredients_table, db
+from app.DatabaseComponent import recipe_table, User, ingredients_table
+from app import db
+from flask_login import current_user
 
 recipes = Blueprint("recipes", __name__,
                     static_folder="static", template_folder="templates")

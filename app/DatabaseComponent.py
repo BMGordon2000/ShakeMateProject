@@ -18,8 +18,8 @@ class User(db.Model, UserMixin): ## creates the database table which stores the 
         return f'User(id={self.id}, name={self.name}, email={self.email}, password={self.password})'
 
 user_favorites = db.Table('user_favorites_list',
-    db.Column('userID', db.Integer, db.ForeignKey('user.id'), primary_key=True),
-    db.Column('recipeID', db.Integer, db.ForeignKey('recipe_table.id'), primary_key=True)
+    db.Column('userID', db.Integer(), db.ForeignKey('user.id'), primary_key=True),
+    db.Column('recipeID', db.Integer(), db.ForeignKey('recipe_table.id'), primary_key=True)
 )
 
 filter_table = db.Table(
@@ -28,7 +28,7 @@ filter_table = db.Table(
     # db.Column('ingredients_table_id', db.Integer(), db.ForeignKey('ingredients_table.id')),
     db.Column('recipe_table_ingName', db.Integer(), db.ForeignKey('recipe_table.ingName')),
     db.Column('ingredients_table_name', db.Integer(), db.ForeignKey('ingredients_table.name'))
-     )
+    )
 
 class ingredients_table(db.Model):
     id = db.Column(db.Integer, primary_key=True)
