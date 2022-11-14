@@ -32,7 +32,7 @@ filter_table = db.Table(
 
 class ingredients_table(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(100))
+    name = db.Column(db.String(100), primary_key=True)
 
     def __repr__(self):
         return f'Ingredient(id={self.id}, name={self.name})'
@@ -43,7 +43,7 @@ class recipe_table(db.Model):
     calories = db.Column(db.String(100))
     fat = db.Column(db.String(100))
     sugar = db.Column(db.String(100))
-    ingName = db.Column(db.String(100))
+    ingName = db.Column(db.String(100), primary_key=True)
 
     def __repr__(self):
         return f'Recipe(id={self.id}, name={self.name}, calories={self.calories}, fat={self.fat}, sugar={self.sugar}, ingName={self.ingName})'
