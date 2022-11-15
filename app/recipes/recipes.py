@@ -1,6 +1,6 @@
 from stat import S_IWUSR
-from flask import Blueprint, render_template,flash,request,redirect,url_for,session, request
-from app.DatabaseComponent import recipe_table, User, ingredients_table, user_favorites_list
+from flask import Blueprint, render_template,flash,request,request
+from app.DatabaseComponent import recipe_table, ingredients_table
 from app import db
 from flask_login import current_user
 
@@ -26,7 +26,7 @@ def index():
         else:
             current_user.favorites.remove(recipeToChange)
             db.session.commit()
-            flashMessage = recipeToChange.name + 'removed from favorites!'
+            flashMessage = recipeToChange.name + ' removed from favorites!'
             flash(flashMessage, category='success')
             return render_template("Recipes.html", recipes_list=recipes_list, favoriteList=favoriteList)
     else:
@@ -47,6 +47,6 @@ def filtercomponet():
 def recipe_detailed(recipe_id):
     recipe = next(
         (recipe for recipe in recipes if recipe["id"] == recipe_id), None)
-    if recipe is None:
-        abort(404, description="No recipe was found with the given ID")
+    # if recipe is None:
+        # abort(404, description="No recipe was found with the given ID")
     return render_template("detailed.html", recipe=recipe)

@@ -1,3 +1,27 @@
-h1 { /* current_user.Name's Account Page */
+h1, h2{
     padding: 0.5%;
+}
+
+.recipes-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 5vw);
+    grid-gap: 10px;
+}
+
+th {
+    font-size: larger;
+}
+
+li {
+    list-style: none;
+}
+tr td{
+    padding-block: 5%;
+    padding-left: 5%;
+}
+
+tr th{
+    padding-block: 5%;
+    padding-left: 5%;
 }

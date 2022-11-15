@@ -34,8 +34,10 @@
     {% if recipes_list[recipe.id - 1] not in favoriteList %} <!-- if recipe is not in favorites list -->
     <td>
       <form method='POST'>
-        <input type="submit" name="recipe" value="{{ recipe.id }}">
-      </form>
+        <button class="btn" name="recipe" value="{{ recipe.id }}">
+          <i class="far fa-star"></i>
+        </button>
+    </form>
       <!-- <button form="favorites" type="submit" name="manageFavorite" value="{{ recipe['id'] }}" formmethod="POST"></button> -->
     </td>
     {% endif %}
@@ -43,7 +45,9 @@
     {% if recipes_list[recipe.id - 1] in favoriteList %} <!-- if recipe is in favorites list -->
     <td>
       <form method='POST'>
-        <input type="submit" name="recipe" value="{{ recipe.id }}">
+          <button class="btn" name="recipe" value="{{ recipe.id }}">
+            <i class="fas fa-star"></i>
+          </button>
       </form>
       <!-- <button form="favorites" type="submit" name="manageFavorite" value="{{ recipe['id'] }}" formmethod="POST"></button> -->
     </td>
