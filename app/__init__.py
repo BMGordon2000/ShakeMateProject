@@ -53,6 +53,7 @@ def create_app():
     from app.DatabaseComponent import User
     from app.DatabaseComponent import ingredients_table
     from app.DatabaseComponent import recipe_table
+    from app.DatabaseComponent import user_favorites_list
 
     with app.app_context():
         # You create the database and tables by following the instructions in the README.md
@@ -155,8 +156,6 @@ def create_app():
                     db.session.add(new_ingredient)
                     db.session.commit()
                 print("The ingredients are added. Inspect the database file or re-run the app to see it.")
-
-
     
     with app.app_context():
         db.create_all()
