@@ -16,13 +16,18 @@ def index():
 
     if request.method == 'POST':
         recipe_id = request.form['recipe']
-        if recipes_list[int(recipe_id) - 1] not in favoriteList:
-            current_user.favorites.append(recipes_list[int(recipe_id) - 1])
+        recipeToChange = recipes_list[int(recipe_id) - 1]
+        if recipeToChange not in favoriteList:
+            current_user.favorites.append(recipeToChange)
             db.session.commit()
+            flashMessage = recipeToChange.name + ' added to favorites!'
+            flash(flashMessage, category='success')
             return render_template("Recipes.html", recipes_list=recipes_list, favoriteList=favoriteList)
         else:
-            current_user.favorites.remove(recipes_list[int(recipe_id) - 1])
+            current_user.favorites.remove(recipeToChange)
             db.session.commit()
+            flashMessage = recipeToChange.name + 'removed from favorites!'
+            flash(flashMessage, category='success')
             return render_template("Recipes.html", recipes_list=recipes_list, favoriteList=favoriteList)
     else:
         return render_template("Recipes.html", recipes_list=recipes_list, favoriteList=favoriteList)
