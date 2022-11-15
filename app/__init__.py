@@ -10,7 +10,6 @@ import os
 db = SQLAlchemy()
 migrate = Migrate()
 
-
 def create_app():
     app = Flask(__name__)
     app.config['SECRET_KEY'] = 'hjdsfsdf'
@@ -54,6 +53,7 @@ def create_app():
     from app.DatabaseComponent import User
     from app.DatabaseComponent import ingredients_table
     from app.DatabaseComponent import recipe_table
+    from app.DatabaseComponent import user_favorites_list
 
     with app.app_context():
         # You create the database and tables by following the instructions in the README.md
@@ -122,10 +122,10 @@ def create_app():
                         "calories": 220, "fat": 10, "sugar": 12, "ingName": "Bananas"},
                 ]
                 for i in range(len(recipes_list)):
-                    new_recipe = recipe_table(name=recipes_list[i].get("name"), calories=recipes_list[i].get("calories"),
+                    new_recipe = recipe_table(id=recipes_list[i].get("id"), name=recipes_list[i].get("name"), calories=recipes_list[i].get("calories"),
                                               fat=recipes_list[i].get("fat"), sugar=recipes_list[i].get("sugar"), ingName=recipes_list[i].get("ingName"))
                     db.session.add(new_recipe)
-                db.session.commit()
+                    db.session.commit()
                 print("The recipes are added. Inspect the database file or re-run the app to see it.")
         
         if not inspector.has_table('ingredients_table'):    # Make sure the table exists before doing anything with it
@@ -152,12 +152,10 @@ def create_app():
                     {'id': 9, 'name': 'Strawberries'}
                 ]
                 for i in range(len(ingredientList)):
-                    new_ingredient = ingredients_table(name=ingredientList[i].get("name"))
+                    new_ingredient = ingredients_table(id=ingredientList[i].get("id"), name=ingredientList[i].get("name"))
                     db.session.add(new_ingredient)
-                db.session.commit()
+                    db.session.commit()
                 print("The ingredients are added. Inspect the database file or re-run the app to see it.")
-
-
     
     with app.app_context():
         db.create_all()
