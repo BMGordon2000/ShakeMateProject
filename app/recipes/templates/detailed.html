@@ -6,7 +6,7 @@
 {% endblock %} 
 
 {% block body %}
-<img src="{{url_for('recipes.static', filename = recipe["id"]|string+".jpg")}}" height "500">
+<img src="{{url_for('recipes.static', filename = recipe["{{ recipe.id }}"]|string+".jpg")}}" height "500">
 
 <h1>{{ recipe["name"] }}</h1>
 {% endblock %}
