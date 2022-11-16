@@ -53,7 +53,6 @@ def create_app():
     from app.DatabaseComponent import User
     from app.DatabaseComponent import ingredients_table
     from app.DatabaseComponent import recipe_table
-    from app.DatabaseComponent import user_favorites_list
 
     with app.app_context():
         # You create the database and tables by following the instructions in the README.md
@@ -97,33 +96,33 @@ def create_app():
                 print("No recipes detected. Adding them")
                 recipes_list = [
                     {"id": 1, "name": "Brown shake with nuts",
-                        "calories": 250, "fat": 8, "sugar": 9, "ingName": "Peanuts"},
+                        "calories": 250, "fat": 8, "sugar": 9},
                     {"id": 2, "name": "Brown shake",
-                        "calories": 235, "fat": 7, "sugar": 7, "ingName": "Oats"},
+                        "calories": 235, "fat": 7, "sugar": 7},
                     {"id": 3, "name": "Dark green shake",
-                        "calories": 60, "fat": 1, "sugar": 2, "ingName": "Kale"},
+                        "calories": 60, "fat": 1, "sugar": 2},
                     {"id": 4, "name": "Dark orange shake",
-                        "calories": 120, "fat": 4, "sugar": 4, "ingName": "Mangoes"},
+                        "calories": 120, "fat": 4, "sugar": 4},
                     {"id": 5, "name": "Dark purple shake",
-                        "calories": 130, "fat": 7, "sugar": 6, "ingName": "Blueberries"},
+                        "calories": 130, "fat": 7, "sugar": 6},
                     {"id": 6, "name": "Dark red shake",
-                        "calories": 145, "fat": 2, "sugar": 7, "ingName": "Strawberries"},
+                        "calories": 145, "fat": 2, "sugar": 7},
                     {"id": 7, "name": "Light green shake",
-                        "calories": 90, "fat": 1, "sugar": 1, "ingName": "Kale"},
+                        "calories": 90, "fat": 1, "sugar": 1},
                     {"id": 8, "name": "Light orange shake",
-                        "calories": 160, "fat": 7, "sugar": 9, "ingName": "Mangoes"},
+                        "calories": 160, "fat": 7, "sugar": 9},
                     {"id": 9, "name": "Light purple shake",
-                        "calories": 140, "fat": 5, "sugar": 4, "ingName": "Cherries"},
+                        "calories": 140, "fat": 5, "sugar": 4},
                     {"id": 10, "name": "Light red shake",
-                        "calories": 145, "fat": 4, "sugar": 3, "ingName": "Strawberries"},
+                        "calories": 145, "fat": 4, "sugar": 3},
                     {"id": 11, "name": "Light yellow shake",
-                        "calories": 180, "fat": 8, "sugar": 5, "ingName": "Peaches"},
+                        "calories": 180, "fat": 8, "sugar": 5},
                     {"id": 12, "name": "White shake",
-                        "calories": 220, "fat": 10, "sugar": 12, "ingName": "Bananas"},
+                        "calories": 220, "fat": 10, "sugar": 12},
                 ]
                 for i in range(len(recipes_list)):
                     new_recipe = recipe_table(id=recipes_list[i].get("id"), name=recipes_list[i].get("name"), calories=recipes_list[i].get("calories"),
-                                              fat=recipes_list[i].get("fat"), sugar=recipes_list[i].get("sugar"), ingName=recipes_list[i].get("ingName"))
+                                              fat=recipes_list[i].get("fat"), sugar=recipes_list[i].get("sugar"))
                     db.session.add(new_recipe)
                     db.session.commit()
                 print("The recipes are added. Inspect the database file or re-run the app to see it.")
@@ -156,7 +155,38 @@ def create_app():
                     db.session.add(new_ingredient)
                     db.session.commit()
                 print("The ingredients are added. Inspect the database file or re-run the app to see it.")
-    
+
+        if not inspector.has_table('filter_table'):
+            print("Filter table does not exist! did you run 'flask db upgrade' from the terminal?")
+        else:
+            print("Filter table already exists!")
+            # brown shake with nuts
+            current_recipe[0].ingredients.append(current_ingredients[7])
+            # brown shake
+            current_recipe[1].ingredients.append(current_ingredients[7])
+            # dark green shake
+            current_recipe[2].ingredients.append(current_ingredients[3])
+            # Dark orange shake
+            current_recipe[3].ingredients.append(current_ingredients[4])
+            # Dark purple shake
+            current_recipe[4].ingredients.append(current_ingredients[2])
+            # Dark red shake
+            current_recipe[5].ingredients.append(current_ingredients[7])
+            # Light green shake
+            current_recipe[6].ingredients.append(current_ingredients[3])
+            # Light orange shake
+            current_recipe[7].ingredients.append(current_ingredients[4])
+            # Light purple shake
+            current_recipe[8].ingredients.append(current_ingredients[6])
+            # Light red shak
+            current_recipe[9].ingredients.append(current_ingredients[4])        
+            # Light yellow shake
+            current_recipe[10].ingredients.append(current_ingredients[0])
+        	# White shake
+            current_recipe[11].ingredients.append(current_ingredients[5])
+            db.session.commit()
+                
+            # Setting ingredients to the recipes they are in for the filter    
     with app.app_context():
         db.create_all()
 

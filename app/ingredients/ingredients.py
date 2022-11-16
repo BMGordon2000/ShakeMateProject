@@ -10,17 +10,14 @@ def index():
     ingredientList = ingredients_table.query.order_by(ingredients_table.id).all()
     return render_template("Ingredients.html", ingredientList = ingredientList)
 
-@ingredients.route("/getshakes", methods = ["POST"])
+@ingredients.route("/getshakes", methods = ['GET', 'POST'])
 def getShakes():
-    shakes = []
+    recipes_list = recipe_table.query.order_by(recipe_table.name).all()
     data = request.json["items"]
+    ingredient_list = []
     for i in data:
-        shake = recipe_table.query.filter_by(ingName=i).all()
-        # shakes.append(shake.name) # only use for .first()
-        for j in shake:
-            myShake = recipe_table.query.filter_by(ingName=i).first()
-            shakes.append(myShake.name) # In the future shake.name would be added to the javascript that would point to the url that would contain the recipe link
-        # print(data)
+        ingredient_list.append[i]
+        
     print(shakes)
     r = jsonify({"value":f"{shakes}"})
     r.status_code = 200
