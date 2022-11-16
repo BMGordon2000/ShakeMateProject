@@ -7,17 +7,20 @@ import sqlalchemy as sa
 
 from app import db
 
+user_favorites_list = db.Table('user_favorites_list',
+    db.Column('userID', db.Integer, db.ForeignKey('user.id')),
+    db.Column('recipeID', db.Integer, db.ForeignKey('recipe_table.id'))
+)
+
 class User(db.Model, UserMixin): ## creates the database table which stores the user login info
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100))
     email = db.Column(db.String(100))
     password = db.Column(db.String(80))
+    favorites = db.relationship('recipe_table', secondary=user_favorites_list, backref='hasFavorited')
 
     def __repr__(self):
         return f'User(id={self.id}, name={self.name}, email={self.email}, password={self.password})'
-
-
-
 
 filter_table = db.Table(
     "filter_table",
@@ -25,7 +28,7 @@ filter_table = db.Table(
     # db.Column('ingredients_table_id', db.Integer(), db.ForeignKey('ingredients_table.id')),
     db.Column('recipe_table_ingName', db.Integer(), db.ForeignKey('recipe_table.ingName')),
     db.Column('ingredients_table_name', db.Integer(), db.ForeignKey('ingredients_table.name'))
-     )
+    )
 
 class ingredients_table(db.Model):
     id = db.Column(db.Integer, primary_key=True)
