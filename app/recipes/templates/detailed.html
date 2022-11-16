@@ -1,12 +1,14 @@
-{% extends 'base.html' %}
-
-{% block head %}
+{% extends 'base.html' %} {% block head %}
 <title>ShakeMate | {{recipe["name"]}}'s Details</title>
-<link rel="stylesheet" href="{{ url_for('recipes.static', filename='recipes.css')}}" />
-{% endblock %} 
-
-{% block body %}
-<img src="{{url_for('recipes.static', filename = recipe["{{ recipe.id }}"]|string+".jpg")}}" height "500">
+<link
+  rel="stylesheet"
+  href="{{ url_for('recipes.static', filename='recipes.css')}}"
+/>
+{% endblock %} {% block body %} <img src= "{{ url_for('recipes.static', filename
+= recipe["id"]|string+".jpeg")}}" height="100">
 
 <h1>{{ recipe["name"] }}</h1>
+<p>{{ recipe["calories"] }}</p>
+<p>{{ recipe["fat"] }}</p>
+<p>{{ recipe["sugar"] }}</p>
 {% endblock %}
