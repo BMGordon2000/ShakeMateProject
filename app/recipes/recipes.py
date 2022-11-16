@@ -37,8 +37,7 @@ def index():
 @recipes.route("/", methods=['GET', 'POST'])
 def filtercomponent():
     array = request.args.getlist('array[]')
-    print(array)
-    
+
     filters= recipe_table.ingName == array[0],ingredients_table.name == array[0]
     filterd = recipe_table.query.filter(*filters).all()
 
