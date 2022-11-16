@@ -46,14 +46,13 @@ def filtercomponent():
     for ingNameString in array:
         for i in ingredients_list:
             if ingNameString == i.name:
-                ingObjectList.append[i]
+                ingObjectList.append(i)
 
     for ing in ingObjectList:
         for recipe in recipes_list:
-            if ing.isIn(recipe) & recipe not in filteredRecipeList:
-                filteredRecipeList.append[recipe]
-
-    
+            if (ing in recipe.ingredients) and (recipe not in filteredRecipeList):
+                filteredRecipeList.append(recipe)
+   
     # filters= recipe_table.ingName == array[0],ingredients_table.name == array[0]
     # filterd = recipe_table.query.filter(*filters).all()
 
