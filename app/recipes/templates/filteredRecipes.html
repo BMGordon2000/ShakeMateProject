@@ -15,7 +15,7 @@
     <th>Sugar</th>
     <th>Ingredient Name</th>
   </tr>
-  {% for recipe in filterd %}
+  {% for recipe in filteredRecipeList %}
   <tr>
     <td>
       <img src= "{{ url_for('recipes.static', filename =
