@@ -42,4 +42,13 @@ function getShakes(){
     // Displaying results to console
     .then(json => document.getElementById("PossibleShakes").innerHTML = JSON.stringify(json.value));
     //.then(json => setTable(JSON.stringify(json.value)))
+    let url = '/recipes/filteredRecipes'
+    for (let i = 0; i < selectedItems.length; i++) {
+        if (url.indexOf('?') === -1) {
+            url = `${url}?array[]=${selectedItems[i]}`
+        } else {
+            url = `${url}&array[]=${selectedItems[i]}`
+        }
+    }
+    window.location.href = url
 }

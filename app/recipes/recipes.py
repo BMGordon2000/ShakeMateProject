@@ -35,10 +35,11 @@ def index():
 
 @recipes.route("/filteredRecipes", methods=['GET', 'POST'])
 @recipes.route("/", methods=['GET', 'POST'])
-def filtercomponet():
-
+def filtercomponent():
+    array = request.args.getlist('array[]')
+    print(array)
     
-    filters= recipe_table.ingName == 'Bananas',ingredients_table.name == 'Bananas'
+    filters= recipe_table.ingName == array[0],ingredients_table.name == array[0]
     filterd = recipe_table.query.filter(*filters).all()
 
     return render_template("filteredRecipes.html", filterd=filterd)
