@@ -15,6 +15,7 @@ function drop(ev) {
     if (!selectedItems.includes(data)){
         selectedItems.push(data);
     }
+    return selectedItems
 }
 
 function getShakes(){
@@ -28,3 +29,13 @@ function getShakes(){
     }
     window.location.href = url
 }
+
+// function getShakes() {
+//     const request = new XMLHttpRequest()
+//     request.open('POST', `/filter/${(selectedItems)}`)
+//     request.onload = () => {
+//         const flaskMessage = request.responseText
+//         console.log(flaskMessage)
+//     }
+//     request.send()
+// }
