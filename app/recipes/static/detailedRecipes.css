@@ -1,0 +1,18 @@
+/* Detailed Recipe Pages */
+
+.detailed-page {
+    display: grid;
+    gap: 3rem;
+    justify-content: center;
+}
+
+.detailed-img {
+    height: 250px;
+    border-radius: 5em;
+}
+
+.servings-icon {
+    display: grid;
+    grid-template-columns: 1 fr;
+    justify-content: center;
+}
