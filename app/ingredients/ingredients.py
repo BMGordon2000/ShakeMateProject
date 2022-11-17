@@ -1,6 +1,6 @@
 from stat import S_IWUSR
-from flask import Blueprint, render_template
-from app.DatabaseComponent import ingredients_table
+from flask import Blueprint, render_template, request, jsonify
+from app.DatabaseComponent import ingredients_table, recipe_table
 
 ingredients = Blueprint("ingredients", __name__, static_folder="static", template_folder="templates")
 

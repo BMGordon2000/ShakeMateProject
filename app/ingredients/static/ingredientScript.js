@@ -15,5 +15,16 @@ function drop(ev) {
     if (!selectedItems.includes(data)){
         selectedItems.push(data);
     }
-    console.log(selectedItems)
+}
+
+function getShakes(){
+    let url = '/recipes/filteredRecipes'
+    for (let i = 0; i < selectedItems.length; i++) {
+        if (url.indexOf('?') === -1) {
+            url = `${url}?array[]=${selectedItems[i]}`
+        } else {
+            url = `${url}&array[]=${selectedItems[i]}`
+        }
+    }
+    window.location.href = url
 }
