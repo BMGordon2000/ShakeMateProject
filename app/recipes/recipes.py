@@ -1,5 +1,5 @@
 from stat import S_IWUSR
-from flask import Blueprint, render_template,flash,request,request
+from flask import Blueprint, render_template, flash, request,request
 from app.DatabaseComponent import recipe_table, ingredients_table
 from app import db
 from flask_login import current_user
@@ -43,10 +43,13 @@ def filtercomponent():
 
     return render_template("filteredRecipes.html", filterd=filterd)
 
+
 @recipes.route("/detailed/<int:recipe_id>", methods=['GET', 'POST'])
 def recipe_detailed(recipe_id):
-    recipe = next(
-        (recipe for recipe in recipes if recipe["id"] == recipe_id), None)
+    recipes_list = recipe_table.query.order_by(recipe_table.id).all()
+    recipe = recipes_list[int(recipe_id) - 1]
+    # recipe = next(
+    #     (recipe for recipe in recipes if recipe["id"] == recipe_id), None)
     # if recipe is None:
-        # abort(404, description="No recipe was found with the given ID")
+    # abort(404, description="No recipe was found with the given ID")
     return render_template("detailed.html", recipe=recipe)
