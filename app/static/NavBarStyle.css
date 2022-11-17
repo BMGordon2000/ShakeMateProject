@@ -1,0 +1,24 @@
+/* Every page default */
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+/* nav bar */
+nav{
+    background: linear-gradient(to bottom, #2193b0, #6dd5ed);
+}
+
+/* Shakemate logo or main text */
+.navbar-brand{
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: whitesmoke;
+}
+.nav-item {
+    font-size: 15px;
+    text-transform: uppercase;
+    color: whitesmoke;
+    text-decoration: none;
+}

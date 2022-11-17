@@ -1,45 +1,70 @@
-{% extends 'base.html' %}{% block title %}ShakeMate Sign Up{% endblock %}
-
-{% block head %}
+{% extends 'base.html' %}{% block title %}ShakeMate Sign Up{% endblock %} {%
+block head %}
 <!-- <title>ShakeMate Sign Up</title> -->
-<style>
-    p {
-        font-size: 80%;
-    }
-</style>
-{% endblock %} 
-
-{% block body %}
-<div class="column is-4 is-offset-4" align="center">
-    <br />
-    <h3 class="title">Sign Up</h3>
+<link rel="stylesheet" href="../static/authentication.css" />
+{% endblock %} {% block body %}
+<!-- <video autoplay muted loop id="myVideo">
+  <source src="../static/shakemate_video.mp4" type="video/mp4" /> -->
+  <div class="sign-up-form" align="center">
+    <h1>Sign Up</h1>
     <div class="box">
-        <form method="POST" action="/signup">
-            <div class="field">
-                <div class="control">
-                    <input class="input is-large" type="email" name="email" placeholder="Email" autofocus="">
-                </div>
-            </div>
-            <div class="field">
-                <div class="control">
-                    <input class="input is-large" type="name" name="name" placeholder="Name" autofocus="">
-                </div>
-            </div>
-            <div class="field">
-                <div class="control">
-                    <input class="input is-large" type="password" name="password" placeholder="Password">
-                </div>
-            </div>
-            <div class="field">
-                <div class="control">
-                    <input class="input is-large" type="password" id="secondpassword" name="secondpassword" placeholder="Confirm Password"/>
-                </div>
-            </div>
-            <br />
-            <button type="submit" class="button btn-primary is-block is-info is-large is-fullwidth">Sign Up</button>
-        </form>
-        <br /> 
-        <p align="center" id="signUpText"> Already have an account?<br /><a href="/login">Login instead</a></p>
+      <form method="POST" action="/signup">
+        <div class="field">
+          <div class="control">
+            <input
+              class="input-box"
+              type="email"
+              name="email"
+              placeholder="Email"
+              autofocus=""
+            />
+          </div>
+        </div>
+        <div class="field">
+          <div class="control">
+            <input
+              class="input-box"
+              type="name"
+              name="name"
+              placeholder="Name"
+              autofocus=""
+            />
+          </div>
+        </div>
+        <div class="field">
+          <div class="control">
+            <input
+              class="input-box"
+              type="password"
+              name="password"
+              placeholder="Password"
+            />
+          </div>
+        </div>
+        <div class="field">
+          <div class="control">
+            <input
+              class="input-box"
+              type="password"
+              id="secondpassword"
+              name="secondpassword"
+              placeholder="Confirm Password"
+            />
+          </div>
+        </div>
+        <br />
+        <button
+          type="submit"
+          class="submit-button"
+        >
+          Sign Up
+        </button>
+      </form>
+      <br />
+      <p align="center" id="signUpText">
+        Already have an account?<br /><a href="/login">Login instead</a>
+      </p>
     </div>
-</div>
-{% endblock %}
+  </div>
+  {% endblock %}
+</video>
