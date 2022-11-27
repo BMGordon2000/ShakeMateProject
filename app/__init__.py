@@ -118,7 +118,23 @@ def create_app():
                     {"id": 11, "name": "Light yellow shake",
                         "calories": 180, "fat": 8, "sugar": 5},
                     {"id": 12, "name": "White shake",
-                        "calories": 220, "fat": 10, "sugar": 12},
+                        "calories": 220, "fat": 7, "sugar": 12},
+                    {"id": 13, "name": "Blue shake",
+                        "calories": 110, "fat": 5, "sugar": 5},    
+                    {"id": 14, "name": "Green shake",
+                        "calories": 50, "fat": 2, "sugar": 3},
+                    {"id": 15, "name": "Dark blue shake",
+                        "calories": 140, "fat": 9, "sugar": 20},
+                    {"id": 16, "name": "Light red shake",
+                        "calories": 120, "fat": 10, "sugar": 5},    
+                    {"id": 17, "name": "Orange shake",
+                        "calories": 145, "fat": 7, "sugar": 8},
+                    {"id": 18, "name": "Purple shake",
+                        "calories": 170, "fat": 2, "sugar": 4},
+                    {"id": 19, "name": "Yellow shake",
+                        "calories": 110, "fat": 3, "sugar": 46},    
+                    {"id": 20, "name": "Green with Kiwi shake",
+                        "calories": 145, "fat": 8, "sugar": 15},
                 ]
                 for i in range(len(recipes_list)):
                     new_recipe = recipe_table(id=recipes_list[i].get("id"), name=recipes_list[i].get("name"), calories=recipes_list[i].get("calories"),
@@ -181,9 +197,25 @@ def create_app():
             # Light red shak
             current_recipe[9].ingredients.append(current_ingredients[4])        
             # Light yellow shake
-            current_recipe[10].ingredients.append(current_ingredients[0])
+            current_recipe[10].ingredients.append(current_ingredients[1])
         	# White shake
             current_recipe[11].ingredients.append(current_ingredients[5])
+            # Blue shake
+            current_recipe[12].ingredients.append(current_ingredients[2])
+            # Green shake
+            current_recipe[13].ingredients.append(current_ingredients[4])
+            # Dark blue shake
+            current_recipe[14].ingredients.append(current_ingredients[2])
+            # Light red shake
+            current_recipe[15].ingredients.append(current_ingredients[8])        
+            # Orange shake
+            current_recipe[16].ingredients.append(current_ingredients[7])
+        	# Purple shake
+            current_recipe[17].ingredients.append(current_ingredients[2])
+            # Yellow shake
+            current_recipe[18].ingredients.append(current_ingredients[5])
+            # Green with Kiwi shake
+            current_recipe[19].ingredients.append(current_ingredients[4])
             db.session.commit()
                 
             # Setting ingredients to the recipes they are in for the filter    
