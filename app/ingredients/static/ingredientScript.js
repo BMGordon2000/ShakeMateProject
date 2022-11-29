@@ -13,10 +13,11 @@ function drop(ev) {
     var data = ev.dataTransfer.getData("text");
     if (ev.target.nodeName !== "IMG"){
         ev.target.appendChild(document.getElementById(data));
+        if (!selectedItems.includes(data)){
+            selectedItems.push(data);
+        }
     }
-    if (!selectedItems.includes(data)){
-        selectedItems.push(data);
-    }
+    console.log(selectedItems);
 }
 
 function getShakes(){
@@ -30,13 +31,3 @@ function getShakes(){
     }
     window.location.href = url
 }
-
-// function getShakes() {
-//     const request = new XMLHttpRequest()
-//     request.open('POST', `/filter/${(selectedItems)}`)
-//     request.onload = () => {
-//         const flaskMessage = request.responseText
-//         console.log(flaskMessage)
-//     }
-//     request.send()
-// }
