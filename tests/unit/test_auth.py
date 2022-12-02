@@ -15,9 +15,6 @@ def test_new_user():
     user = User('drake@gmail.com','drake12345')
     assert user.email == 'drake@gmail.com'
     assert user.password == 'drake12345'
-    # assert user.is_authenticated
-    # assert user.is_active
-    # assert not user.is_anonymous
 
 
 def test_new_user_with_fixture(new_user):
