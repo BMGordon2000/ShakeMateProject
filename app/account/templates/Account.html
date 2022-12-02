@@ -10,21 +10,22 @@
 {% endblock %} 
 
 {% block body %}
-<h1>{{ current_user.name }}'s Account Page</h1>
-<h2>Favorite's List</h2>
+<a class="left"><b>Name:</b> {{ current_user.name }}</a>
+<a class="right"><b>Email:</b> {{ current_user.email }}</a>
+<br></br>
+<h2>List of Favorites</h2>
 <table>
-    <tr>
+    <tr class="headers" height=15px;>
       <th>Image</th>
       <th>Name</th>
       <th>Calories</th>
       <th>Fat</th>
       <th>Sugar</th>
-      <th>Ingredient Name</th>
       <th>Favorite</th>
     </tr>
     {% for recipe in recipes_list %}
     {% if recipes_list[recipe.id - 1] in favoriteList %} <!-- if recipe is in favorites list -->
-    <tr>
+    <tr class="table">
       <td>
         <img src= "{{ url_for('recipes.static', filename = recipe["id"]|string+".jpeg")}}" height="100">
       </td>
@@ -39,7 +40,7 @@
       <td>
         <form method='POST'>
             <button class="btn" name="recipe" value="{{ recipe.id }}">
-              <i class="fas fa-star"></i>
+              <i class="fas fa-star" background-color=#6dd5ed;></i>
             </button>
         </form>
         <!-- <button form="favorites" type="submit" name="manageFavorite" value="{{ recipe['id'] }}" formmethod="POST"></button> -->
@@ -47,6 +48,6 @@
       {% endif %}
     </tr>
     {% endfor %}
-  </table>
+</table>
 
 {% endblock %}
