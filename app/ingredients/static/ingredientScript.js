@@ -11,10 +11,13 @@ function drag(ev) {
 function drop(ev) {
     ev.preventDefault();
     var data = ev.dataTransfer.getData("text");
-    ev.target.appendChild(document.getElementById(data));
-    if (!selectedItems.includes(data)){
-        selectedItems.push(data);
+    if (ev.target.nodeName !== "IMG"){
+        ev.target.appendChild(document.getElementById(data));
+        if (!selectedItems.includes(data)){
+            selectedItems.push(data);
+        }
     }
+    console.log(selectedItems);
 }
 
 function getShakes(){

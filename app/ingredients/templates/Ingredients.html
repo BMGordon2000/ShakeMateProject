@@ -23,7 +23,8 @@
 <aside>
     <p><center><strong>Currently Selected:</strong></center></p>
     <div id="selected" class="grid2" ondrop="drop(event)" ondragover="allowDrop(event)"></div> 
-    <center><button onclick="getShakes()">Use these ingredients</button></center>
+    <center> <form method='POST'>
+        <button type="button" onclick="getShakes()">Use these ingredients</button>
+    </form> </center>
 </aside>
-
 {% endblock %}
