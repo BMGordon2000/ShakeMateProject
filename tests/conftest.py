@@ -10,13 +10,13 @@ from main import app
 
 @pytest.fixture(scope='module')
 def new_user():
-    user = User('drake@gmail.com', 'drake12345')
+    user = User('drake','drake@gmail.com', 'drake12345')
     return user
 
 @pytest.fixture(scope='module')
 def test_client():
     # Create a Flask app configured for testing
-    flask_app = create_app(app)
+    flask_app = create_app()
     flask_app.config.from_object('config.TestingConfig')
 
     # Create a test client using the Flask application configured for testing

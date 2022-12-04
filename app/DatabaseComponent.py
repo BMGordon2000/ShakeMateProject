@@ -30,15 +30,14 @@ class User(db.Model, UserMixin): ## creates the database table which stores the 
     def __repr__(self):
         return f'User(id={self.id}, name={self.name}, email={self.email}, password={self.password})'
 
-    def __init__(self, name: str, id: int, email: str, password: str, favorites: str):
+    def __init__(self, name: str, email: str, password: str):
         """Create a new User object using the email address and hashing the
         plaintext password using Werkzeug.Security.
         """
-        self.id = id
+
         self.name = name
         self.email = email
         self.password = password
-        self.favorites = favorites
 
         
     def is_password_correct(self, password: str):

@@ -6,7 +6,7 @@ account = Blueprint("account", __name__,
                     static_folder="static", template_folder="templates")
 
 
-@account.route("/favoritesList", methods=['GET', 'POST'])
+# @account.route("/favoritesList", methods=['GET', 'POST'])
 @account.route("/", methods=['GET', 'POST'])
 @login_required
 def index():
