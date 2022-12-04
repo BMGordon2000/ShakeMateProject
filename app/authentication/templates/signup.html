@@ -1,12 +1,44 @@
 {% extends 'base.html' %}{% block title %}ShakeMate Sign Up{% endblock %} {%
 block head %}
 <!-- <title>ShakeMate Sign Up</title> -->
-<link rel="stylesheet" href="../static/authentication.css" />
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+  }
+
+  .sign-up-form {
+    width: 300px;
+    box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0, 3);
+    background: #fff;
+    padding: 20px;
+    margin: 8% auto 0;
+    text-align: center;
+    z-index: 1;
+  }
+
+  .sign-up-form h1 {
+    color: #1c8adb;
+    margin-bottom: 30px;
+  }
+
+  #myVideo {
+    position: absolute;
+    object-fit: cover;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: 0;
+  }
+</style>
 {% endblock %} {% block body %}
-<!-- <video autoplay muted loop id="myVideo">
-  <source src="../static/shakemate_video.mp4" type="video/mp4" /> -->
+<video autoplay muted loop id="myVideo">
+  <source src="../static/shakemate_video.mp4" type="video/mp4" />
   <div class="sign-up-form" align="center">
     <h1>Sign Up</h1>
+
     <div class="box">
       <form method="POST" action="/signup">
         <div class="field">
