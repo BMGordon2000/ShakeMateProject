@@ -5,19 +5,42 @@
     grid-gap: 10px;
 }
 
+/* tr th{
+    padding-block: 5%;
+    padding-left: 5%;
+} */
+
+button.btn {
+    color: #CCCC00;
+}
+
+table {
+    width: 100%;
+    padding: 5%;
+}
+
 th {
     font-size: larger;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+    background-color: #6dd5ed;
+    color: white;
 }
 
-li {
-    list-style: none;
-}
-tr td{
-    padding-block: 5%;
-    padding-left: 5%;
+td {
+    text-align: center;
+    vertical-align: middle;
+    border-bottom: 1px solid #ddd;
 }
 
-tr th{
-    padding-block: 5%;
-    padding-left: 5%;
+tr.table {
+    transition: background-color 0.25s;
+}
+
+tr.headers {
+    border-top: 1px solid whitesmoke;
+}
+
+tr.table:hover {
+    background-color: #ddd;
 }

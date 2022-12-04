@@ -2,6 +2,25 @@ h1, h2{
     padding: 0.5%;
 }
 
+h2 {
+    text-align: center;
+}
+
+a.left, a.right {
+    text-decoration: none;
+    color: black;
+}
+
+a.left {
+    padding-inline-start: 5%;
+    float: left;
+}
+
+a.right {
+    float: right;
+    padding-inline-end: 5%;
+}
+
 .recipes-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -9,19 +28,29 @@ h1, h2{
     grid-gap: 10px;
 }
 
+table {
+    width: 100%;
+    padding: 5%;
+}
+
 th {
     font-size: larger;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+    background-color: #6dd5ed;
+    color: white;
 }
 
-li {
-    list-style: none;
-}
-tr td{
-    padding-block: 5%;
-    padding-left: 5%;
+td {
+    text-align: center;
+    vertical-align: middle;
+    border-bottom: 1px solid #ddd;
 }
 
-tr th{
-    padding-block: 5%;
-    padding-left: 5%;
+tr.table {
+    transition: background-color 0.25s;
+}
+
+tr.table:hover {
+    background-color: #ddd;
 }
