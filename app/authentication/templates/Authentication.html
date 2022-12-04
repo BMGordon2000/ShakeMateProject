@@ -21,7 +21,7 @@
     .center h1 {
         text-align: center;
         padding: 20px 0;
-        /* border-bottom: 1px solid rgb(0, 0, 0); */
+        border-bottom: 1px solid rgb(0, 0, 0);
     }
     .center form{
         padding: 0 40px;
@@ -75,30 +75,16 @@
 {% block body %}
 <div class="center">
     <h1>Login</h1>
-        <!-- {% with messages = get_flashed_messages() %}
-            {% if messages %}
-                <div class="notification is-danger">
-                    {{ messages[0] }}
-                </div>
-            {% endif %}
-        {% endwith %} -->
     <form method="POST" action="/login">
         <div class="field">
-            <div class="control">
-                <input class="input is-large" type="email" name="email" placeholder="Your Email" autofocus="">
-            </div>
+                <input type="email" name="email" placeholder="Your Email" autofocus="">
         </div>
-
         <div class="field">
-            <div class="control">
-                <input class="input is-large" type="password" name="password" placeholder="Your Password">
-            </div>
+                <input type="password" name="password" placeholder="Your Password">
         </div>
         <div class="remember">
-            <div class="col ">
-                <input type="checkbox" class="with-gap" email="persist">
+                <input type="checkbox" email="persist">
                 <label for="persist">Remember Me</label>
-            </div>
         </div>
             <button class="login-button">Login</button>
         <div class="signup_link">
