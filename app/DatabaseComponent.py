@@ -30,10 +30,11 @@ class User(db.Model, UserMixin): ## creates the database table which stores the 
     def __repr__(self):
         return f'User(id={self.id}, name={self.name}, email={self.email}, password={self.password})'
 
-    def __init__(self, email: str, password: str):
+    def __init__(self, name:str, email: str, password: str):
         """Create a new User object using the email address and hashing the
         plaintext password using Werkzeug.Security.
         """
+        self.name = name
         self.email = email
         self.password = password
 
@@ -68,3 +69,4 @@ class ingredients_table(db.Model):
 
     def __repr__(self):
         return f'Ingredient(id={self.id}, name={self.name})'
+    
