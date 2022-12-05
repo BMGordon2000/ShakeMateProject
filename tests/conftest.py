@@ -15,7 +15,7 @@ def new_user():
 
 @pytest.fixture(scope="module")
 def new_recipe():
-    recipe = recipe_table('testRecipe', 350, 20, 50)
+    recipe = recipe_table(id=0, name='testRecipe', calories=350, fat=20, sugar=50, recipetext="recipe text placeholder")
     return recipe
 
 @pytest.fixture(scope='module')
@@ -41,7 +41,7 @@ def init_database(test_client):
     user2 = User(email='trafton@gmail.com', password_plaintext='hopefullyThisWorks')
 
     # Initialize recipe data
-    recipe1 = recipe_table(name='testRecipe', calories=350, fat=20, sugar=50)
+    recipe1 = recipe_table(id=0, name='testRecipe', calories=350, fat=20, sugar=50, recipetext="recipe text placeholder")
 
     # Insert data to db
     db.session.add(user1)

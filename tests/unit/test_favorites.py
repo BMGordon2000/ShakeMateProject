@@ -13,7 +13,7 @@ def test_favorites():
     creates own objects
     """
     user1 = User(name='drake', email='drake@gmail.com', password='drake12345')
-    recipe1 = recipe_table(name='testRecipe', calories=350, fat=20, sugar=50)
+    recipe1 = recipe_table(id=0, name='testRecipe', calories=350, fat=20, sugar=50, recipetext="recipe text placeholder")
     user1.favorites.append(recipe1)
     assert user1.favorites == [recipe1]
 
@@ -31,7 +31,7 @@ def test_favorited():
     creates own objects
     """
     user1 = User(name='drake', email='drake@gmail.com', password='drake12345')
-    recipe1 = recipe_table(name='testRecipe', calories=350, fat=20, sugar=50)
+    recipe1 = recipe_table(id=0, name='testRecipe', calories=350, fat=20, sugar=50, recipetext="recipe text placeholder")
     recipe1.hasFavorited.append(user1)
     assert recipe1.hasFavorited == [user1]
 

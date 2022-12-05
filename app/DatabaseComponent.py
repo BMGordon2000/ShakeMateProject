@@ -65,7 +65,7 @@ class recipe_table(db.Model):
     recipetext = db.Column(db.String(500))
     ingredients = db.relationship('ingredients_table', secondary=filter_table, backref='isIn')
 
-    def __init__(self, name: str, calories: int, fat: int, sugar: int):
+    def __init__(self, id: int, name: str, calories: int, fat: int, sugar: int, recipetext: str):
         """
         Create a new recipe object
         """
@@ -73,6 +73,7 @@ class recipe_table(db.Model):
         self.calories = calories
         self.fat = fat
         self.sugar = sugar
+        self.recipetext = recipetext
 
     def __repr__(self):
         return f'Recipe(id={self.id}, name={self.name}, recipetext={self.recipetext}, calories={self.calories}, fat={self.fat}, sugar={self.sugar})'
