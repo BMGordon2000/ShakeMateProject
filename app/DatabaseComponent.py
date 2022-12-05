@@ -9,13 +9,16 @@ import sqlalchemy as sa
 from app import db
 
 user_favorites_list = db.Table('user_favorites_list',
+    # M:M favorite's list table
+    # parents: User, recipe_table
+
     db.Column('userID', db.Integer, db.ForeignKey('user.id')),
     db.Column('recipeID', db.Integer, db.ForeignKey('recipe_table.id'))
 )
 
 filter_table = db.Table('filter_table',
-    # db.Column('recipe_table_id', db.Integer(), db.ForeignKey('recipe_table.id')),
-    # db.Column('ingredients_table_id', db.Integer(), db.ForeignKey('ingredients_table.id'))
+    # M:M association table
+    # parents: recipe_table, ingredients_table
     db.Column('recipe_table_name', db.Integer(), db.ForeignKey('recipe_table.name')),
     db.Column('ingredients_table_name', db.Integer(), db.ForeignKey('ingredients_table.name'))
     )
