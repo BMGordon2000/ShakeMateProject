@@ -13,7 +13,7 @@ def test_new_recipe():
     """
     checks if a recipe is initialized correctly 
     """
-    recipe = recipe_table(name='testRecipe', calories=350, fat=20, sugar=50)
+    recipe = recipe_table(name='testRecipe', calories=350, fat=20, sugar=50, id=2, recipetext='yum')
     assert recipe.name == 'testRecipe'
     assert recipe.calories == 350
     assert recipe.fat == 20
