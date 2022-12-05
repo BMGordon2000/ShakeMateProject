@@ -1,6 +1,6 @@
 import pytest
 
-from app.DatabaseComponent import User, db
+from app.DatabaseComponent import User, db, recipe_table
 from app.__init__ import create_app
 from main import app
 
@@ -12,6 +12,11 @@ from main import app
 def new_user():
     user = User('drake','drake@gmail.com', 'drake12345')
     return user
+
+@pytest.fixture(scope="module")
+def new_recipe():
+    recipe = recipe_table('testRecipe', 350, 20, 50)
+    return recipe
 
 @pytest.fixture(scope='module')
 def test_client():
@@ -31,13 +36,25 @@ def init_database(test_client):
     # Create the database and the database table
     db.create_all()
 
-    # Insert user data
-    user1 = User(email='patkennedy79@gmail.com', password_plaintext='FlaskIsAwesome')
-    user2 = User(email='kennedyfamilyrecipes@gmail.com', password_plaintext='PaSsWoRd123')
+    # Initialize user data
+    user1 = User(name='drake', email='drake@gmail.com', password_plaintext='drake12345')
+    user2 = User(email='trafton@gmail.com', password_plaintext='hopefullyThisWorks')
+
+    # Initialize recipe data
+    recipe1 = recipe_table(name='testRecipe', calories=350, fat=20, sugar=50)
+
+    # Insert data to db
     db.session.add(user1)
     db.session.add(user2)
+    db.session.add(recipe1)
 
-    # Commit the changes for the users
+    # Commit the changes
+    db.session.commit()
+
+    # Add recipe 1 to user 1's favorite list
+    user1.favorites.append(recipe1)
+
+    # Commit the changes
     db.session.commit()
 
     yield  # this is where the testing happens!
@@ -48,7 +65,7 @@ def init_database(test_client):
 @pytest.fixture(scope='function')
 def login_default_user(test_client):
     test_client.post('/login',
-                     data=dict(email='patkennedy79@gmail.com', password='FlaskIsAwesome'),
+                     data=dict(email='drake@gmail.com', password='drake12345'),
                      follow_redirects=True)
 
     yield  # this is where the testing happens!
