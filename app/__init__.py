@@ -100,15 +100,15 @@ def create_app():
                     {"id": 2, "name": "Banana Shake",
                         "calories": 235, "fat": 7, "sugar": 7, "recipetext": "Combine 1 banana and 1/4 cup milk in a blender and blend until smooth."},
                     {"id": 3, "name": "Strawberry Banana Shake",
-                        "calories": 60, "fat": 1, "sugar": 2, "recipetext": "Pour 1/2 cup milk in a blender. Add halved strawberries. Add 1/2 of a banana. Add 1/2 tbsp sugar."},
+                        "calories": 60, "fat": 1, "sugar": 2, "recipetext": "Pour 1/2 cup milk in a blender. Add 1/4 cup halved strawberries. Add 1/2 of a banana. Add 1/2 tbsp sugar."},
                     {"id": 4, "name": "Cherry-Blueberry Banana Shake",
-                        "calories": 120, "fat": 4, "sugar": 4, "recipetext": "In a blender combine cherries, milk, yogurt, blueberries, and banana. Cover and blend until smooth."},
+                        "calories": 120, "fat": 4, "sugar": 4, "recipetext": "In a blender combine 1/2 cup cherries WITHOUT SEEDS, 1 cup yogurt, 1/4 cup blueberries, and 1/4 cup sliced banana. Cover and blend until smooth."},
                     {"id": 5, "name": "Orange Vanilla Shake",
-                        "calories": 130, "fat": 7, "sugar": 6, "recipetext": "Cut the orange into halves and remove seeds. Peel and dice into large pieces. Add into blender with 1 tsp vanilla and milk and blend until smooth."},
+                        "calories": 130, "fat": 7, "sugar": 6, "recipetext": "Cut 1 orange into halves and remove seeds and peel and dice into large pieces. Add into blender with 1 tsp vanilla and 1 cup milk and blend until smooth."},
                     {"id": 6, "name": "Triple Berry Oat Shake",
                         "calories": 145, "fat": 2, "sugar": 7, "recipetext": "Add 1/4 cup frozen blueberries, 1/4 cup frozen raspberries, 1/2 cup frozen strawberries, 1/2 cup rolled oats, 1/2 cup yogurt, and 1 banana to the blender and blend until smooth."},
                     {"id": 7, "name": "Tropical Coconut Shake",
-                        "calories": 90, "fat": 1, "sugar": 1, "recipetext": "Place pineapple, yogurt, coconut, and regular milk in blender and blend until smooth."},
+                        "calories": 90, "fat": 1, "sugar": 1, "recipetext": "Place 1/2 cup frozen pineapple, 1/2 cup yogurt, 1/4 cup shaved coconut, and 1/4 cup milk in blender and blend until smooth."},
                     {"id": 8, "name": "Healthy Kale Smoothie",
                         "calories": 160, "fat": 7, "sugar": 9, "recipetext": "Place all ingredients (2 cups kale, 3/4 cup milk, 1 banana, 1/4 cup yogurt, 1/4 cup pineapple, 2 tbsp peanut butter, and 1 tsp sugar) in a blender and blend until smooth"},
                     {"id": 9, "name": "Strawberry Smoothie",
@@ -124,13 +124,13 @@ def create_app():
                     {"id": 14, "name": "Sunrise Sunset Shake",
                         "calories": 50, "fat": 2, "sugar": 3, "recipetext": "Combine 1/4 cup strawberries, 1 cup yogurt, 1/4 cup mango chunks, 1/4 cup juiced orange, 1/4 cup frozen pineapple, and 1 tsp maple syrup into blender and blend until smooth"},
                     {"id": 15, "name": "Creamy Peanut Butter Shake",
-                        "calories": 140, "fat": 9, "sugar": 20, "recipetext": "Add milk, vanilla ice cream, and 1 cup peanut butter into the blender and blend until smooth"},
+                        "calories": 140, "fat": 9, "sugar": 20, "recipetext": "Add 1 cup milk, 1/2 cup vanilla ice cream, and 1 cup peanut butter into the blender and blend until smooth"},
                     {"id": 16, "name": "Kale Smoothie",
                         "calories": 120, "fat": 10, "sugar": 5, "recipetext": "Combine 1/2 cup kale, 1 cup milk, 1/4 cup peach chunks, 1/4 cup sliced banana, and 1 tsp maple syrup into blender and blend until smooth"}
                 ]
                 for i in range(len(recipes_list)):
                     new_recipe = recipe_table(id=recipes_list[i].get("id"), name=recipes_list[i].get("name"), calories=recipes_list[i].get("calories"),
-                                              fat=recipes_list[i].get("fat"), sugar=recipes_list[i].get("sugar"))
+                                              fat=recipes_list[i].get("fat"), sugar=recipes_list[i].get("sugar"), recipetext=recipes_list[i].get("recipetext"))
                     db.session.add(new_recipe)
                     db.session.commit()
                 print("The recipes are added. Inspect the database file or re-run the app to see it.")
