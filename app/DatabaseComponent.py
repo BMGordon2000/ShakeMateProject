@@ -9,13 +9,17 @@ import sqlalchemy as sa
 from app import db
 
 user_favorites_list = db.Table('user_favorites_list',
+    # M:M favorite's list table
+    # parents: User, recipe_table
+
     db.Column('userID', db.Integer, db.ForeignKey('user.id')),
     db.Column('recipeID', db.Integer, db.ForeignKey('recipe_table.id'))
 )
 
 filter_table = db.Table('filter_table',
-    # db.Column('recipe_table_id', db.Integer(), db.ForeignKey('recipe_table.id')),
-    # db.Column('ingredients_table_id', db.Integer(), db.ForeignKey('ingredients_table.id'))
+    # M:M association table
+    # parents: recipe_table, ingredients_table
+
     db.Column('recipe_table_name', db.Integer(), db.ForeignKey('recipe_table.name')),
     db.Column('ingredients_table_name', db.Integer(), db.ForeignKey('ingredients_table.name'))
     )
@@ -30,11 +34,10 @@ class User(db.Model, UserMixin): ## creates the database table which stores the 
     def __repr__(self):
         return f'User(id={self.id}, name={self.name}, email={self.email}, password={self.password})'
 
-    def __init__(self, name: str, email: str, password: str):
+    def __init__(self, name:str, email: str, password: str):
         """Create a new User object using the email address and hashing the
         plaintext password using Werkzeug.Security.
         """
-
         self.name = name
         self.email = email
         self.password = password
@@ -59,10 +62,21 @@ class recipe_table(db.Model):
     calories = db.Column(db.String(100))
     fat = db.Column(db.String(100))
     sugar = db.Column(db.String(100))
+    recipetext = db.Column(db.String(500))
     ingredients = db.relationship('ingredients_table', secondary=filter_table, backref='isIn')
 
+    def __init__(self, id: int, name: str, calories: int, fat: int, sugar: int, recipetext: str):
+        """
+        Create a new recipe object
+        """
+        self.name = name
+        self.calories = calories
+        self.fat = fat
+        self.sugar = sugar
+        self.recipetext = recipetext
+
     def __repr__(self):
-        return f'Recipe(id={self.id}, name={self.name}, calories={self.calories}, fat={self.fat}, sugar={self.sugar})'
+        return f'Recipe(id={self.id}, name={self.name}, recipetext={self.recipetext}, calories={self.calories}, fat={self.fat}, sugar={self.sugar})'
 
 class ingredients_table(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -70,3 +84,4 @@ class ingredients_table(db.Model):
 
     def __repr__(self):
         return f'Ingredient(id={self.id}, name={self.name})'
+    

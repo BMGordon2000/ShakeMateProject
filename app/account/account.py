@@ -10,6 +10,11 @@ account = Blueprint("account", __name__,
 @account.route("/", methods=['GET', 'POST'])
 @login_required
 def index():
+    """
+    gets recipe list and favorite list
+    then either adds a recipe to a user's favorite list or deletes a recipe from the user's favorite list
+    returns new render template with updated star icon
+    """
     recipes_list = recipe_table.query.order_by(recipe_table.id).all()
     favoriteList = current_user.favorites
 
