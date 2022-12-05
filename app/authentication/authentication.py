@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template,flash,request,redirect,url_for,session
+from flask import Blueprint, render_template,flash,request,redirect,url_for,session,send_from_directory
 from app.DatabaseComponent import User
 from werkzeug.security import generate_password_hash, check_password_hash
 from app import db
@@ -64,3 +64,9 @@ def signup():
 def logout():
     logout_user()
     return redirect(url_for('authentication.login'))
+
+@authentication.route("../static/shakemate_video.mp4")
+def display_video(shakemate_video):
+    return send_from_directory(
+        authentication.config['static'], shakemate_video, as_attachment=True
+    )
