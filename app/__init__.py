@@ -106,7 +106,7 @@ def create_app():
                     {"id": 5, "name": "Orange Vanilla Shake",
                         "calories": 130, "fat": 7, "sugar": 6, "recipetext": "Cut the orange into halves and remove seeds. Peel and dice into large pieces. Add into blender with 1 tsp vanilla and milk and blend until smooth."},
                     {"id": 6, "name": "Triple Berry Oat Shake",
-                        "calories": 145, "fat": 2, "sugar": 7, "recipetext": ""},
+                        "calories": 145, "fat": 2, "sugar": 7, "recipetext": "Add 1/4 cup frozen blueberries, 1/4 cup frozen raspberries, 1/2 cup frozen strawberries, 1/2 cup rolled oats, 1/2 cup yogurt, and 1 banana to the blender and blend until smooth."},
                     {"id": 7, "name": "Light green shake",
                         "calories": 90, "fat": 1, "sugar": 1, "recipetext": ""},
                     {"id": 8, "name": "Light orange shake",
@@ -166,7 +166,10 @@ def create_app():
                     {'id': 8, 'name': 'Peanuts'},
                     {'id': 9, 'name': 'Strawberries'},
                     {'id': 10, 'name': 'Oranges'},
-                    {'id': 11, 'name': 'Vanilla'}
+                    {'id': 11, 'name': 'Vanilla'},
+                    {'id': 12, 'name': 'Coconut'},
+                    {'id': 13, 'name': 'Pineapple'},
+                    {'id': 14, 'name': 'Raspberries'}
                 ]
                 for i in range(len(ingredientList)):
                     new_ingredient = ingredients_table(id=ingredientList[i].get("id"), name=ingredientList[i].get("name"))
@@ -193,7 +196,11 @@ def create_app():
             current_recipe[4].ingredients.append(current_ingredients[9])
             current_recipe[4].ingredients.append(current_ingredients[10])
             # Triple Berry Oat Shake
-            current_recipe[5].ingredients.append(current_ingredients[7])
+            current_recipe[5].ingredients.append(current_ingredients[0])
+            current_recipe[5].ingredients.append(current_ingredients[1])
+            current_recipe[5].ingredients.append(current_ingredients[13])
+            current_recipe[5].ingredients.append(current_ingredients[8])
+            current_recipe[5].ingredients.append(current_ingredients[5])
             # Light green shake
             current_recipe[6].ingredients.append(current_ingredients[3])
             # Light orange shake
@@ -206,7 +213,7 @@ def create_app():
             current_recipe[10].ingredients.append(current_ingredients[1])
             current_recipe[10].ingredients.append(current_ingredients[0])
         	# White shake
-            current_recipe[11].ingredients.append(current_ingredients[5])
+            current_recipe[11].ingredients.append(current_ingredients[0])
             # Blue shake
             current_recipe[12].ingredients.append(current_ingredients[2])
             # Green shake

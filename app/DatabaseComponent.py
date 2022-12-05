@@ -62,7 +62,7 @@ class recipe_table(db.Model):
     ingredients = db.relationship('ingredients_table', secondary=filter_table, backref='isIn')
 
     def __repr__(self):
-        return f'Recipe(id={self.id}, name={self.name}, calories={self.calories}, fat={self.fat}, sugar={self.sugar}, recipetext={self.recipetext})'
+        return f'Recipe(id={self.id}, name={self.name}, recipetext={self.recipetext}, calories={self.calories}, fat={self.fat}, sugar={self.sugar})'
 
 class ingredients_table(db.Model):
     id = db.Column(db.Integer, primary_key=True)
