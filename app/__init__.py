@@ -107,7 +107,7 @@ def create_app():
                         "calories": 130, "fat": 7, "sugar": 6, "recipetext": "Cut the orange into halves and remove seeds. Peel and dice into large pieces. Add into blender with 1 tsp vanilla and milk and blend until smooth."},
                     {"id": 6, "name": "Triple Berry Oat Shake",
                         "calories": 145, "fat": 2, "sugar": 7, "recipetext": "Add 1/4 cup frozen blueberries, 1/4 cup frozen raspberries, 1/2 cup frozen strawberries, 1/2 cup rolled oats, 1/2 cup yogurt, and 1 banana to the blender and blend until smooth."},
-                    {"id": 7, "name": "Tropical Shake",
+                    {"id": 7, "name": "Tropical Coconut Shake",
                         "calories": 90, "fat": 1, "sugar": 1, "recipetext": "Place pineapple, yogurt, coconut, and regular milk in blender and blend until smooth."},
                     {"id": 8, "name": "Healthy Kale Smoothie",
                         "calories": 160, "fat": 7, "sugar": 9, "recipetext": "Place all ingredients (2 cups kale, 3/4 cup milk, 1 banana, 1/4 cup yogurt, 1/4 cup pineapple, 2 tbsp peanut butter, and 1 tsp sugar) in a blender and blend until smooth"},
@@ -117,24 +117,16 @@ def create_app():
                         "calories": 145, "fat": 4, "sugar": 3, "recipetext": "Combine 1 banana, 1 cup yogurt, 1/4 cup peanut butter, 1 tsp cinnamon, and 1 tsp sugar into blender and blend until smooth"},
                     {"id": 11, "name": "Strawberry Mango Shake",
                         "calories": 180, "fat": 8, "sugar": 5, "recipetext": "Combine 1/2 cup strawberries, 1 cup yogurt, 1/2 cup mango chunks, and 1 tsp sugar into blender and blend until smooth"},
-                    {"id": 12, "name": "White shake",
-                        "calories": 220, "fat": 7, "sugar": 12, "recipetext": ""},
-                    {"id": 13, "name": "Blue shake",
-                        "calories": 110, "fat": 5, "sugar": 5, "recipetext": ""},    
-                    {"id": 14, "name": "Green shake",
-                        "calories": 50, "fat": 2, "sugar": 3, "recipetext": ""},
-                    {"id": 15, "name": "Dark blue shake",
-                        "calories": 140, "fat": 9, "sugar": 20, "recipetext": ""},
-                    {"id": 16, "name": "Light red shake",
-                        "calories": 120, "fat": 10, "sugar": 5, "recipetext": ""},    
-                    {"id": 17, "name": "Orange shake",
-                        "calories": 145, "fat": 7, "sugar": 8, "recipetext": ""},
-                    {"id": 18, "name": "Purple shake",
-                        "calories": 170, "fat": 2, "sugar": 4, "recipetext": ""},
-                    {"id": 19, "name": "Yellow shake",
-                        "calories": 110, "fat": 3, "sugar": 46, "recipetext": ""},    
-                    {"id": 20, "name": "Green with Kiwi shake",
-                        "calories": 145, "fat": 8, "sugar": 15, "recipetext": ""},
+                    {"id": 12, "name": "Peach Smoothie",
+                        "calories": 220, "fat": 7, "sugar": 12, "recipetext": "Combine 1 cup frozen peaches, 1 cup yogurt, 1/2 cup milk, 1 tsp vanilla, and 1 tsp sugar into blender and blend until smooth"},
+                    {"id": 13, "name": "Tropical Smoothie",
+                        "calories": 110, "fat": 5, "sugar": 5, "recipetext": "Combine 1/2 banana, 1 cup yogurt, 1/4 cup mango chunks, 1/4 cup peeled orange, 1/4 cup frozen pineapple, and 1 tsp sugar into blender and blend until smooth"},    
+                    {"id": 14, "name": "Sunrise Sunset Shake",
+                        "calories": 50, "fat": 2, "sugar": 3, "recipetext": "Combine 1/4 cup strawberries, 1 cup yogurt, 1/4 cup mango chunks, 1/4 cup juiced orange, 1/4 cup frozen pineapple, and 1 tsp maple syrup into blender and blend until smooth"},
+                    {"id": 15, "name": "Creamy Peanut Butter Shake",
+                        "calories": 140, "fat": 9, "sugar": 20, "recipetext": "Add milk, vanilla ice cream, and 1 cup peanut butter into the blender and blend until smooth"},
+                    {"id": 16, "name": "Kale Smoothie",
+                        "calories": 120, "fat": 10, "sugar": 5, "recipetext": "Combine 1/2 cup kale, 1 cup milk, 1/4 cup peach chunks, 1/4 cup sliced banana, and 1 tsp maple syrup into blender and blend until smooth"}
                 ]
                 for i in range(len(recipes_list)):
                     new_recipe = recipe_table(id=recipes_list[i].get("id"), name=recipes_list[i].get("name"), calories=recipes_list[i].get("calories"),
@@ -183,7 +175,7 @@ def create_app():
             print("Filter table already exists!")
             # brown shake with nuts
             current_recipe[0].ingredients.append(current_ingredients[7])
-            # Banana shake- bananas
+            # Banana shake
             current_recipe[1].ingredients.append(current_ingredients[0])
             # Strawberry Banana Shake
             current_recipe[2].ingredients.append(current_ingredients[0])
@@ -210,32 +202,33 @@ def create_app():
             current_recipe[7].ingredients.append(current_ingredients[3])
             # Strawberry Smoothie
             current_recipe[8].ingredients.append(current_ingredients[8])
-            current_recipe[7].ingredients.append(current_ingredients[5])
-            current_recipe[7].ingredients.append(current_ingredients[10])
+            current_recipe[8].ingredients.append(current_ingredients[5])
+            current_recipe[8].ingredients.append(current_ingredients[10])
             # Peanut Butter Banana Shake
             current_recipe[9].ingredients.append(current_ingredients[0])
             current_recipe[9].ingredients.append(current_ingredients[7])
             # Strawberry Mango Shake
             current_recipe[10].ingredients.append(current_ingredients[8])
             current_recipe[10].ingredients.append(current_ingredients[4])
-        	# White shake
-            current_recipe[11].ingredients.append(current_ingredients[0])
-            # Blue shake
-            current_recipe[12].ingredients.append(current_ingredients[2])
-            # Green shake
+        	# Peach Smoothie
+            current_recipe[11].ingredients.append(current_ingredients[6])
+            current_recipe[11].ingredients.append(current_ingredients[10])
+            # Tropical Smoothie
+            current_recipe[12].ingredients.append(current_ingredients[0])
+            current_recipe[12].ingredients.append(current_ingredients[4])
+            current_recipe[12].ingredients.append(current_ingredients[12])
+            current_recipe[12].ingredients.append(current_ingredients[9])
+            # Sunrise Sunset Shake
+            current_recipe[13].ingredients.append(current_ingredients[8])
             current_recipe[13].ingredients.append(current_ingredients[4])
-            # Dark blue shake
-            current_recipe[14].ingredients.append(current_ingredients[2])
-            # Light red shake
-            current_recipe[15].ingredients.append(current_ingredients[8])        
-            # Orange shake
-            current_recipe[16].ingredients.append(current_ingredients[7])
-        	# Purple shake
-            current_recipe[17].ingredients.append(current_ingredients[2])
-            # Yellow shake
-            current_recipe[18].ingredients.append(current_ingredients[5])
-            # Green with Kiwi shake
-            current_recipe[19].ingredients.append(current_ingredients[4])
+            current_recipe[13].ingredients.append(current_ingredients[12])
+            current_recipe[13].ingredients.append(current_ingredients[9])
+            # Creamy Peanut Butter Shake
+            current_recipe[14].ingredients.append(current_ingredients[7])
+            # Kale Smoothie
+            current_recipe[15].ingredients.append(current_ingredients[0])
+            current_recipe[15].ingredients.append(current_ingredients[3])
+            current_recipe[15].ingredients.append(current_ingredients[6])
             db.session.commit()
                 
             # Setting ingredients to the recipes they are in for the filter    
