@@ -3,6 +3,7 @@ venv/
 .venv/
 instance/
 .env
+/node_modules
 .idea/
 
 
