@@ -121,12 +121,14 @@ def create_app():
                         "calories": 220, "fat": 7, "sugar": 12, "recipetext": "Combine 1 cup frozen peaches, 1 cup yogurt, 1/2 cup milk, 1 tsp vanilla, and 1 tsp sugar into blender and blend until smooth"},
                     {"id": 13, "name": "Tropical Smoothie",
                         "calories": 110, "fat": 5, "sugar": 5, "recipetext": "Combine 1/2 banana, 1 cup yogurt, 1/4 cup mango chunks, 1/4 cup peeled orange, 1/4 cup frozen pineapple, and 1 tsp sugar into blender and blend until smooth"},    
-                    {"id": 14, "name": "Sunrise Sunset Shake",
+                    {"id": 14, "name": "Sunrise Shake",
                         "calories": 50, "fat": 2, "sugar": 3, "recipetext": "Combine 1/4 cup strawberries, 1 cup yogurt, 1/4 cup mango chunks, 1/4 cup juiced orange, 1/4 cup frozen pineapple, and 1 tsp maple syrup into blender and blend until smooth"},
                     {"id": 15, "name": "Creamy Peanut Butter Shake",
                         "calories": 140, "fat": 9, "sugar": 20, "recipetext": "Add 1 cup milk, 1/2 cup vanilla ice cream, and 1 cup peanut butter into the blender and blend until smooth"},
                     {"id": 16, "name": "Kale Smoothie",
-                        "calories": 120, "fat": 10, "sugar": 5, "recipetext": "Combine 1/2 cup kale, 1 cup milk, 1/4 cup peach chunks, 1/4 cup sliced banana, and 1 tsp maple syrup into blender and blend until smooth"}
+                        "calories": 120, "fat": 10, "sugar": 5, "recipetext": "Combine 1/2 cup kale, 1 cup milk, 1/4 cup peach chunks, 1/4 cup sliced banana, and 1 tsp maple syrup into blender and blend until smooth"},
+                    {"id": 17, "name": "Strawberry Kiwi Shake",
+                        "calories": 213, "fat": 2, "sugar": 22, "recipetext": "Add 1 kiwi, 1/2 cup strawberries, 1 tbsp of yogurt, and 1 cup of milk into a blender and blend until smooth"}
                 ]
                 for i in range(len(recipes_list)):
                     new_recipe = recipe_table(id=recipes_list[i].get("id"), name=recipes_list[i].get("name"), calories=recipes_list[i].get("calories"),
@@ -161,7 +163,8 @@ def create_app():
                     {'id': 11, 'name': 'Vanilla'},
                     {'id': 12, 'name': 'Coconut'},
                     {'id': 13, 'name': 'Pineapple'},
-                    {'id': 14, 'name': 'Raspberries'}
+                    {'id': 14, 'name': 'Raspberries'},
+                    {'id': 15, 'name': 'Kiwis'}
                 ]
                 for i in range(len(ingredientList)):
                     new_ingredient = ingredients_table(id=ingredientList[i].get("id"), name=ingredientList[i].get("name"))
@@ -218,7 +221,7 @@ def create_app():
             current_recipe[12].ingredients.append(current_ingredients[4])
             current_recipe[12].ingredients.append(current_ingredients[12])
             current_recipe[12].ingredients.append(current_ingredients[9])
-            # Sunrise Sunset Shake
+            # Sunrise Shake
             current_recipe[13].ingredients.append(current_ingredients[8])
             current_recipe[13].ingredients.append(current_ingredients[4])
             current_recipe[13].ingredients.append(current_ingredients[12])
@@ -229,6 +232,9 @@ def create_app():
             current_recipe[15].ingredients.append(current_ingredients[0])
             current_recipe[15].ingredients.append(current_ingredients[3])
             current_recipe[15].ingredients.append(current_ingredients[6])
+            # Strawberry Kiwi Shake
+            current_recipe[16].ingredients.append(current_ingredients[14])
+            current_recipe[16].ingredients.append(current_ingredients[8])
             db.session.commit()
                 
             # Setting ingredients to the recipes they are in for the filter    
