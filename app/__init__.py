@@ -13,7 +13,7 @@ migrate = Migrate()
 def create_app():
     app = Flask(__name__)
     app.config['SECRET_KEY'] = 'hjdsfsdf'
-    app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL') or \
+    app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('postgres://uxlnsyrkvmscyw:e4d26cbc6d6530745a4a5af15df2cf91965d23aff7a4b48596b309d6db422ac3@ec2-52-20-166-21.compute-1.amazonaws.com:5432/d3idthv2dsdhhr') or \
         'sqlite:///' + \
         os.path.join(
             'test.db')  # this creates the database as a personal file in called test.db
