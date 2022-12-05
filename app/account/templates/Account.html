@@ -84,12 +84,15 @@ tr.table:hover {
     {% if recipes_list[recipe.id - 1] in favoriteList %} <!-- if recipe is in favorites list -->
     <tr class="table">
       <td>
-        <img src= "{{ url_for('recipes.static', filename = recipe["id"]|string+".jpeg")}}" height="100">
-      </td>
-      <td>{{ recipe.name }}</td>
-      <td>{{ recipe.calories }}</td>
-      <td>{{ recipe.fat }}</td>
-      <td>{{ recipe.sugar }}</td>
+        <a href="{{url_for('recipes.recipe_detailed', recipe_id = recipe['id'])}}"
+        ><img src= "{{ url_for('recipes.static', filename =
+        recipe["id"]|string+".jpeg")}}" height="100"></a
+      >
+    </td>
+    <td>{{ recipe.name }}</td>
+    <td>{{ recipe.calories }}</td>
+    <td>{{ recipe.fat }}</td>
+    <td>{{ recipe.sugar }}</td>
   
       <!-- prints list of recipe objects at top of page
       {{ recipes_list[recipe.id - 1] }} -->

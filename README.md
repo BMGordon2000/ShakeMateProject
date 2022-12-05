@@ -29,3 +29,10 @@
     - this will create a database file in `instance/test.db`. You can open this file with a SQLite Browser and look at the tables.
     - If you update a database model (e.g., DatabaseComponent.User), you must run `flask db migrate` and then `flask db upgrade` in the Terminal for the changes to show in the database file.
 3. Run `flask run` in the Terminal. You will see a URL that you can browse to show the app.
+
+## Using pytest
+
+1.  `pip install -U pytest`
+    - This install py test in your 
+2.  `py -m pytest -v`
+    - using this command will run every test that has test_ or _test

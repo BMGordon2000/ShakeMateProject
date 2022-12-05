@@ -34,7 +34,7 @@ class User(db.Model, UserMixin): ## creates the database table which stores the 
     def __repr__(self):
         return f'User(id={self.id}, name={self.name}, email={self.email}, password={self.password})'
 
-    def __init__(self, name: str, email: str, password: str):
+    def __init__(self, name:str, email: str, password: str):
         """Create a new User object using the email address and hashing the
         plaintext password using Werkzeug.Security.
         """
@@ -62,6 +62,7 @@ class recipe_table(db.Model):
     calories = db.Column(db.String(100))
     fat = db.Column(db.String(100))
     sugar = db.Column(db.String(100))
+    recipetext = db.Column(db.String(500))
     ingredients = db.relationship('ingredients_table', secondary=filter_table, backref='isIn')
 
     def __init__(self, name: str, calories: int, fat: int, sugar: int):
@@ -74,7 +75,7 @@ class recipe_table(db.Model):
         self.sugar = sugar
 
     def __repr__(self):
-        return f'Recipe(id={self.id}, name={self.name}, calories={self.calories}, fat={self.fat}, sugar={self.sugar})'
+        return f'Recipe(id={self.id}, name={self.name}, recipetext={self.recipetext}, calories={self.calories}, fat={self.fat}, sugar={self.sugar})'
 
 class ingredients_table(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -82,3 +83,4 @@ class ingredients_table(db.Model):
 
     def __repr__(self):
         return f'Ingredient(id={self.id}, name={self.name})'
+    
