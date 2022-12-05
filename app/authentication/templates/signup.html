@@ -1,97 +1,120 @@
-{% extends 'base.html' %}{% block title %}ShakeMate Sign Up{% endblock %} {%
-block head %}
-<!-- <title>ShakeMate Sign Up</title> -->
+{% extends 'base.html' %}{% block title %}ShakeMate Sign Up{% endblock %} 
+{%block head %}
 <style>
-  body {
-    margin: 0;
-    padding: 0;
-    font-family: sans-serif;
+  .body {
+      margin: 0;
+      padding: 0;
+      font-family: sans-serif;
   }
-
-  .sign-up-form {
-    width: 300px;
-    box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0, 3);
-    background: #fff;
-    padding: 20px;
-    margin: 8% auto 0;
-    text-align: center;
-    z-index: 1;
+  .center {
+      position: absolute;
+      top: 50%;
+      left : 50%;
+      transform: translate(-50%,-50%);
+      width: 400px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 10px 10px 15px rgba(0,0,0,0.05);
   }
-
-  .sign-up-form h1 {
-    color: #1c8adb;
-    margin-bottom: 30px;
+  .center h1 {
+      text-align: center;
+      padding: 20px 0;
+      border-bottom: 1px solid rgb(0, 0, 0);
   }
-
+  .center form{
+      padding: 0 40px;
+      box-sizing: border-box;
+  }
+  form .field{
+      position: relative;
+      border-bottom: 2px solid #adadad;
+      margin: 30px 0;
+  }
+  .field input{
+      width: 100%;
+      padding: 0 5px;
+      height: 40px;
+      font-size: 16px;
+      border: none;
+      background: none;
+      outline: none;
+  }
+  .login-button{
+      width:100%;
+      height:40px;
+      border:none;
+      border-radius:5px;
+      font-size:17px;
+      font-weight:600;
+      color:#fff;
+      background-color:#1859c9;
+      cursor:pointer;
+  }
+  .signup_link{
+      margin: 30px 0;
+      text-align: center;
+      font-size: 16px;
+      color: #000000;
+  }
+  .signup_link a{
+      color: #2691d9;
+      text-decoration: none;
+  }
   #myVideo {
-    position: absolute;
-    object-fit: cover;
+    position: fixed;
     right: 0;
     bottom: 0;
     min-width: 100%;
     min-height: 100%;
-    z-index: 0;
-  }
+    z-index: -1;
+}
 </style>
 {% endblock %} {% block body %}
-<video autoplay muted loop id="myVideo">
-  <source src="../static/shakemate_video.mp4" type="video/mp4" />
-  <div class="sign-up-form" align="center">
+<!-- <video autoplay muted loop id="myVideo">
+  <source src="../static/shakemate_video.mp4" type="video/mp4" /> -->
+  <div class="center">
     <h1>Sign Up</h1>
-
-    <div class="box">
       <form method="POST" action="/signup">
         <div class="field">
-          <div class="control">
-            <input
-              class="input-box"
-              type="email"
-              name="email"
-              placeholder="Email"
-              autofocus=""
-            />
-          </div>
+          <input
+            class="input-box"
+            type="email"
+            name="email"
+            placeholder="Email"
+            autofocus=""
+          />
         </div>
         <div class="field">
-          <div class="control">
-            <input
-              class="input-box"
-              type="name"
-              name="name"
-              placeholder="Name"
-              autofocus=""
-            />
-          </div>
+          <input
+            class="input-box"
+            type="name"
+            name="name"
+            placeholder="Name"
+            autofocus=""
+          />
         </div>
         <div class="field">
-          <div class="control">
-            <input
-              class="input-box"
-              type="password"
-              name="password"
-              placeholder="Password"
-            />
-          </div>
+          <input
+            class="input-box"
+            type="password"
+            name="password"
+            placeholder="Password"
+          />
         </div>
         <div class="field">
-          <div class="control">
-            <input
-              class="input-box"
-              type="password"
-              id="secondpassword"
-              name="secondpassword"
-              placeholder="Confirm Password"
-            />
-          </div>
+          <input
+            class="input-box"
+            type="password"
+            id="secondpassword"
+            name="secondpassword"
+            placeholder="Confirm Password"
+          />
         </div>
-        <br />
-        <button type="submit" class="submit-button">Sign Up</button>
+        <button class="login-button">Signup</button>
       </form>
-      <br />
-      <p align="center" id="signUpText">
-        Already have an account?<br /><a href="/login">Login instead</a>
-      </p>
+      <div class="signup_link">
+        Already have an account? <a href="/login">Login</a>
+      </div>
     </div>
-  </div>
-  {% endblock %}
-</video>
+  <!-- </video> -->
+{% endblock %}

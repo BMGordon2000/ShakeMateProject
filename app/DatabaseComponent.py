@@ -2,6 +2,7 @@
 # from Shake import *
 # from User import *
 # from ingredients.Ingredient import *
+from werkzeug.security import check_password_hash, generate_password_hash
 from flask_login import UserMixin
 import sqlalchemy as sa
 
@@ -28,6 +29,29 @@ class User(db.Model, UserMixin): ## creates the database table which stores the 
 
     def __repr__(self):
         return f'User(id={self.id}, name={self.name}, email={self.email}, password={self.password})'
+
+    def __init__(self, name: str, email: str, password: str):
+        """Create a new User object using the email address and hashing the
+        plaintext password using Werkzeug.Security.
+        """
+
+        self.name = name
+        self.email = email
+        self.password = password
+
+        
+    def is_password_correct(self, password: str):
+        return check_password_hash(self.password, password)
+
+    def set_password(self, password: str):
+        self.password = self._generate_password_hash(password)
+
+    @staticmethod
+    def _generate_password_hash(password):
+        return generate_password_hash(password)
+
+
+
 
 class recipe_table(db.Model):
     id = db.Column(db.Integer, primary_key=True)
