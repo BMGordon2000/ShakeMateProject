@@ -1,6 +1,6 @@
 import pytest
 
-from app.DatabaseComponent import User, db, recipe_table
+from app.DatabaseComponent import User, db, recipe_table, ingredients_table
 from app.__init__ import create_app
 from main import app
 
@@ -17,6 +17,16 @@ def new_user():
 def new_recipe():
     recipe = recipe_table(id=0, name='testRecipe', calories=350, fat=20, sugar=50, recipetext="recipe text placeholder")
     return recipe
+
+@pytest.fixture(scope='module')
+def existing_user():
+    user = User('Brian','drake@gmail.com', 'Brian12345')
+    return user
+
+@pytest.fixture(scope='module')
+def test_recipe_image():
+    test_recipe1 = recipe_table(id=23)
+    return test_recipe1
 
 @pytest.fixture(scope='module')
 def test_client():
@@ -82,3 +92,7 @@ def cli_test_client():
 
     yield runner  # this is where the testing happens!
 
+@pytest.fixture(scope='module')
+def new_ingredient_test():
+    ing = ingredients_table(id=0, name="PotatoTest")
+    return ing
