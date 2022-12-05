@@ -1,7 +1,64 @@
 {% extends 'base.html' %} 
 
 {% block head %}
-<link rel="stylesheet" href="{{ url_for('account.static', filename='accountStyles.css') }}">
+<style>
+  h1, h2{
+    padding: 0.5%;
+}
+
+h2 {
+    text-align: center;
+}
+
+a.left, a.right {
+    text-decoration: none;
+    color: black;
+}
+
+a.left {
+    padding-inline-start: 5%;
+    float: left;
+}
+
+a.right {
+    float: right;
+    padding-inline-end: 5%;
+}
+
+.recipes-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 5vw);
+    grid-gap: 10px;
+}
+
+table {
+    width: 100%;
+    padding: 5%;
+}
+
+th {
+    font-size: larger;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+    background-color: #6dd5ed;
+    color: white;
+}
+
+td {
+    text-align: center;
+    vertical-align: middle;
+    border-bottom: 1px solid #ddd;
+}
+
+tr.table {
+    transition: background-color 0.25s;
+}
+
+tr.table:hover {
+    background-color: #ddd;
+}
+</style>
 <link
   rel="stylesheet"
   href="{{ url_for('recipes.static', filename='recipes.css')}}"
