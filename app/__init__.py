@@ -204,15 +204,20 @@ def create_app():
             # Tropical Shake
             current_recipe[6].ingredients.append(current_ingredients[11])
             current_recipe[6].ingredients.append(current_ingredients[12])
-            # Light orange shake
-            current_recipe[7].ingredients.append(current_ingredients[4])
-            # Light purple shake
-            current_recipe[8].ingredients.append(current_ingredients[6])
-            # Light red shak
-            current_recipe[9].ingredients.append(current_ingredients[4])        
-            # Light yellow shake
-            current_recipe[10].ingredients.append(current_ingredients[1])
-            current_recipe[10].ingredients.append(current_ingredients[0])
+            # Healthy Kale Shake
+            current_recipe[7].ingredients.append(current_ingredients[0])
+            current_recipe[7].ingredients.append(current_ingredients[12])
+            current_recipe[7].ingredients.append(current_ingredients[3])
+            # Strawberry Smoothie
+            current_recipe[8].ingredients.append(current_ingredients[8])
+            current_recipe[7].ingredients.append(current_ingredients[5])
+            current_recipe[7].ingredients.append(current_ingredients[10])
+            # Peanut Butter Banana Shake
+            current_recipe[9].ingredients.append(current_ingredients[0])
+            current_recipe[9].ingredients.append(current_ingredients[7])
+            # Strawberry Mango Shake
+            current_recipe[10].ingredients.append(current_ingredients[8])
+            current_recipe[10].ingredients.append(current_ingredients[4])
         	# White shake
             current_recipe[11].ingredients.append(current_ingredients[0])
             # Blue shake
