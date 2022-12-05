@@ -40,3 +40,14 @@ def test_setting_password(new_user):
     assert new_user.is_password_correct('MyNewPassword')
     assert not new_user.is_password_correct('MyNewPassword2')
     assert not new_user.is_password_correct('FlaskIsAwesome')
+
+def test_existing_user():
+    """
+    GIVEN a User model
+    WHEN a new User's email already exists for another user
+    THEN check the email and password_hashed fields are defined correctly
+    """
+    user = User('Brian','drake@gmail.com','Brian12345')
+    assert user.name == 'Brian'
+    assert user.email == 'drake@gmail.com'
+    assert user.password == 'Brian12345'

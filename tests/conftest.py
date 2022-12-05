@@ -14,6 +14,11 @@ def new_user():
     return user
 
 @pytest.fixture(scope='module')
+def existing_user():
+    user = User('Brian','drake@gmail.com', 'Brian12345')
+    return user
+
+@pytest.fixture(scope='module')
 def test_client():
     # Create a Flask app configured for testing
     flask_app = create_app()
