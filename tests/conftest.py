@@ -1,6 +1,6 @@
 import pytest
 
-from app.DatabaseComponent import User, db, recipe_table
+from app.DatabaseComponent import User, db, recipe_table, ingredients_table
 from app.__init__ import create_app
 from main import app
 
@@ -92,3 +92,7 @@ def cli_test_client():
 
     yield runner  # this is where the testing happens!
 
+@pytest.fixture(scope='module')
+def new_ingredient_test():
+    ing = ingredients_table(id=0, name="PotatoTest")
+    return ing

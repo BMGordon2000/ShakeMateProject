@@ -22,3 +22,6 @@ def test_new_ingredient_2():
 def test_new_ingredient_3():
     test_ingredient3 = ingredients_table(name='12376128731263871263128361273612783612736123612371283612836127361732169')
     assert test_ingredient3.name == '12376128731263871263128361273612783612736123612371283612836127361732169'
+
+def test_ingredient_list(new_ingredient_test):
+    assert new_ingredient_test.name == 'PotatoTest'
