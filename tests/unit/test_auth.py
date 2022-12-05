@@ -1,7 +1,5 @@
 import pytest 
 from app.DatabaseComponent import User
-
-
 from app.__init__ import create_app
 
 @pytest.fixture
@@ -9,14 +7,11 @@ def app():
     app = create_app()
     return app
 
-
-
 def test_new_user():
     user = User('drake','drake@gmail.com','drake12345')
     assert user.name == 'drake'
     assert user.email == 'drake@gmail.com'
     assert user.password == 'drake12345'
-
 
 def test_new_user_with_fixture(new_user):
     """
@@ -27,7 +22,6 @@ def test_new_user_with_fixture(new_user):
     assert new_user.name == 'drake'
     assert new_user.email == 'drake@gmail.com'
     assert new_user.password == 'drake12345'
-
 
 def test_setting_password(new_user):
     """
