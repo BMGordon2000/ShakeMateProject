@@ -2,7 +2,7 @@ import pytest
 
 from app.DatabaseComponent import User, db
 from app.__init__ import create_app
-
+from main import app
 
 # --------
 # Fixtures
@@ -10,7 +10,7 @@ from app.__init__ import create_app
 
 @pytest.fixture(scope='module')
 def new_user():
-    user = User('drake@gmail.com', 'drake12345')
+    user = User('drake','drake@gmail.com', 'drake12345')
     return user
 
 @pytest.fixture(scope='module')

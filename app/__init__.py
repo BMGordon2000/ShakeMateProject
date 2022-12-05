@@ -34,7 +34,7 @@ def create_app():
     # these registers the blueprints so they
     app.register_blueprint(ingredients.ingredients, url_prefix="/ingredients")
     # can be used in the app in differnt files
-    app.register_blueprint(account.account, url_prefix="/account")
+    app.register_blueprint(account.account, url_prefix="")
     app.register_blueprint(authentication.authentication, url_prefix="")
     app.register_blueprint(favorites.favorites, url_prefix="")
 
