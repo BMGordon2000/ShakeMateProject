@@ -58,10 +58,11 @@ class recipe_table(db.Model):
     calories = db.Column(db.String(100))
     fat = db.Column(db.String(100))
     sugar = db.Column(db.String(100))
+    recipetext = db.Column(db.String(500))
     ingredients = db.relationship('ingredients_table', secondary=filter_table, backref='isIn')
 
     def __repr__(self):
-        return f'Recipe(id={self.id}, name={self.name}, calories={self.calories}, fat={self.fat}, sugar={self.sugar})'
+        return f'Recipe(id={self.id}, name={self.name}, calories={self.calories}, fat={self.fat}, sugar={self.sugar}, recipetext={self.recipetext})'
 
 class ingredients_table(db.Model):
     id = db.Column(db.Integer, primary_key=True)

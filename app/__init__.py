@@ -96,45 +96,45 @@ def create_app():
                 print("No recipes detected. Adding them")
                 recipes_list = [
                     {"id": 1, "name": "Brown shake with nuts",
-                        "calories": 250, "fat": 8, "sugar": 9},
-                    {"id": 2, "name": "Brown shake",
-                        "calories": 235, "fat": 7, "sugar": 7},
-                    {"id": 3, "name": "Dark green shake",
-                        "calories": 60, "fat": 1, "sugar": 2},
-                    {"id": 4, "name": "Dark orange shake",
-                        "calories": 120, "fat": 4, "sugar": 4},
-                    {"id": 5, "name": "Dark purple shake",
-                        "calories": 130, "fat": 7, "sugar": 6},
-                    {"id": 6, "name": "Dark red shake",
-                        "calories": 145, "fat": 2, "sugar": 7},
+                        "calories": 5000, "fat": 8, "sugar": 9, "recipetext": "the greatest shake of all time"},
+                    {"id": 2, "name": "Banana Shake",
+                        "calories": 235, "fat": 7, "sugar": 7, "recipetext": "Combine 1 banana and 1/4 cup milk in a blender and blend until smooth."},
+                    {"id": 3, "name": "Strawberry Banana Shake",
+                        "calories": 60, "fat": 1, "sugar": 2, "recipetext": "Pour 1/2 cup milk in a blender. Add halved strawberries. Add 1/2 of a banana. Add 1/2 tbsp sugar."},
+                    {"id": 4, "name": "Cherry-Blueberry Banana Shake",
+                        "calories": 120, "fat": 4, "sugar": 4, "recipetext": "In a blender combine cherries, milk, yogurt, blueberries, and banana. Cover and blend until smooth."},
+                    {"id": 5, "name": "Orange Vanilla Shake",
+                        "calories": 130, "fat": 7, "sugar": 6, "recipetext": "Cut the orange into halves and remove seeds. Peel and dice into large pieces. Add into blender with 1 tsp vanilla and milk and blend until smooth."},
+                    {"id": 6, "name": "Triple Berry Oat Shake",
+                        "calories": 145, "fat": 2, "sugar": 7, "recipetext": ""},
                     {"id": 7, "name": "Light green shake",
-                        "calories": 90, "fat": 1, "sugar": 1},
+                        "calories": 90, "fat": 1, "sugar": 1, "recipetext": ""},
                     {"id": 8, "name": "Light orange shake",
-                        "calories": 160, "fat": 7, "sugar": 9},
+                        "calories": 160, "fat": 7, "sugar": 9, "recipetext": ""},
                     {"id": 9, "name": "Light purple shake",
-                        "calories": 140, "fat": 5, "sugar": 4},
+                        "calories": 140, "fat": 5, "sugar": 4, "recipetext": ""},
                     {"id": 10, "name": "Light red shake",
-                        "calories": 145, "fat": 4, "sugar": 3},
+                        "calories": 145, "fat": 4, "sugar": 3, "recipetext": ""},
                     {"id": 11, "name": "Light yellow shake",
-                        "calories": 180, "fat": 8, "sugar": 5},
+                        "calories": 180, "fat": 8, "sugar": 5, "recipetext": ""},
                     {"id": 12, "name": "White shake",
-                        "calories": 220, "fat": 7, "sugar": 12},
+                        "calories": 220, "fat": 7, "sugar": 12, "recipetext": ""},
                     {"id": 13, "name": "Blue shake",
-                        "calories": 110, "fat": 5, "sugar": 5},    
+                        "calories": 110, "fat": 5, "sugar": 5, "recipetext": ""},    
                     {"id": 14, "name": "Green shake",
-                        "calories": 50, "fat": 2, "sugar": 3},
+                        "calories": 50, "fat": 2, "sugar": 3, "recipetext": ""},
                     {"id": 15, "name": "Dark blue shake",
-                        "calories": 140, "fat": 9, "sugar": 20},
+                        "calories": 140, "fat": 9, "sugar": 20, "recipetext": ""},
                     {"id": 16, "name": "Light red shake",
-                        "calories": 120, "fat": 10, "sugar": 5},    
+                        "calories": 120, "fat": 10, "sugar": 5, "recipetext": ""},    
                     {"id": 17, "name": "Orange shake",
-                        "calories": 145, "fat": 7, "sugar": 8},
+                        "calories": 145, "fat": 7, "sugar": 8, "recipetext": ""},
                     {"id": 18, "name": "Purple shake",
-                        "calories": 170, "fat": 2, "sugar": 4},
+                        "calories": 170, "fat": 2, "sugar": 4, "recipetext": ""},
                     {"id": 19, "name": "Yellow shake",
-                        "calories": 110, "fat": 3, "sugar": 46},    
+                        "calories": 110, "fat": 3, "sugar": 46, "recipetext": ""},    
                     {"id": 20, "name": "Green with Kiwi shake",
-                        "calories": 145, "fat": 8, "sugar": 15},
+                        "calories": 145, "fat": 8, "sugar": 15, "recipetext": ""},
                 ]
                 for i in range(len(recipes_list)):
                     new_recipe = recipe_table(id=recipes_list[i].get("id"), name=recipes_list[i].get("name"), calories=recipes_list[i].get("calories"),
@@ -164,7 +164,9 @@ def create_app():
                     {'id': 6, 'name': 'Oats'},
                     {'id': 7, 'name': 'Peaches'},
                     {'id': 8, 'name': 'Peanuts'},
-                    {'id': 9, 'name': 'Strawberries'}
+                    {'id': 9, 'name': 'Strawberries'},
+                    {'id': 10, 'name': 'Oranges'},
+                    {'id': 11, 'name': 'Vanilla'}
                 ]
                 for i in range(len(ingredientList)):
                     new_ingredient = ingredients_table(id=ingredientList[i].get("id"), name=ingredientList[i].get("name"))
@@ -178,15 +180,19 @@ def create_app():
             print("Filter table already exists!")
             # brown shake with nuts
             current_recipe[0].ingredients.append(current_ingredients[7])
-            # brown shake
-            current_recipe[1].ingredients.append(current_ingredients[7])
-            # dark green shake
-            current_recipe[2].ingredients.append(current_ingredients[3])
-            # Dark orange shake
-            current_recipe[3].ingredients.append(current_ingredients[4])
-            # Dark purple shake
-            current_recipe[4].ingredients.append(current_ingredients[2])
-            # Dark red shake
+            # Banana shake- bananas
+            current_recipe[1].ingredients.append(current_ingredients[0])
+            # Strawberry Banana Shake
+            current_recipe[2].ingredients.append(current_ingredients[0])
+            current_recipe[2].ingredients.append(current_ingredients[8])
+            # Cherry-Blueberry Banana Shake
+            current_recipe[3].ingredients.append(current_ingredients[0])
+            current_recipe[3].ingredients.append(current_ingredients[1])
+            current_recipe[3].ingredients.append(current_ingredients[2])
+            # Orange Vanilla Shake
+            current_recipe[4].ingredients.append(current_ingredients[9])
+            current_recipe[4].ingredients.append(current_ingredients[10])
+            # Triple Berry Oat Shake
             current_recipe[5].ingredients.append(current_ingredients[7])
             # Light green shake
             current_recipe[6].ingredients.append(current_ingredients[3])
@@ -198,6 +204,7 @@ def create_app():
             current_recipe[9].ingredients.append(current_ingredients[4])        
             # Light yellow shake
             current_recipe[10].ingredients.append(current_ingredients[1])
+            current_recipe[10].ingredients.append(current_ingredients[0])
         	# White shake
             current_recipe[11].ingredients.append(current_ingredients[5])
             # Blue shake
