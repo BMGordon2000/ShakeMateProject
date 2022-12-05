@@ -96,7 +96,7 @@ def create_app():
                 print("No recipes detected. Adding them")
                 recipes_list = [
                     {"id": 1, "name": "Brown shake with nuts",
-                        "calories": 5000, "fat": 8, "sugar": 9, "recipetext": "the greatest shake of all time"},
+                        "calories": 5000, "fat": 0, "sugar": 0, "recipetext": "The greatest shake of all time, it is infinitely powerful"},
                     {"id": 2, "name": "Banana Shake",
                         "calories": 235, "fat": 7, "sugar": 7, "recipetext": "Combine 1 banana and 1/4 cup milk in a blender and blend until smooth."},
                     {"id": 3, "name": "Strawberry Banana Shake",
@@ -107,8 +107,8 @@ def create_app():
                         "calories": 130, "fat": 7, "sugar": 6, "recipetext": "Cut the orange into halves and remove seeds. Peel and dice into large pieces. Add into blender with 1 tsp vanilla and milk and blend until smooth."},
                     {"id": 6, "name": "Triple Berry Oat Shake",
                         "calories": 145, "fat": 2, "sugar": 7, "recipetext": "Add 1/4 cup frozen blueberries, 1/4 cup frozen raspberries, 1/2 cup frozen strawberries, 1/2 cup rolled oats, 1/2 cup yogurt, and 1 banana to the blender and blend until smooth."},
-                    {"id": 7, "name": "Light green shake",
-                        "calories": 90, "fat": 1, "sugar": 1, "recipetext": ""},
+                    {"id": 7, "name": "Tropical Shake",
+                        "calories": 90, "fat": 1, "sugar": 1, "recipetext": "Place pineapple, yogurt, coconut, and regular milk in blender and blend until smooth."},
                     {"id": 8, "name": "Light orange shake",
                         "calories": 160, "fat": 7, "sugar": 9, "recipetext": ""},
                     {"id": 9, "name": "Light purple shake",
@@ -201,8 +201,9 @@ def create_app():
             current_recipe[5].ingredients.append(current_ingredients[13])
             current_recipe[5].ingredients.append(current_ingredients[8])
             current_recipe[5].ingredients.append(current_ingredients[5])
-            # Light green shake
-            current_recipe[6].ingredients.append(current_ingredients[3])
+            # Tropical Shake
+            current_recipe[6].ingredients.append(current_ingredients[11])
+            current_recipe[6].ingredients.append(current_ingredients[12])
             # Light orange shake
             current_recipe[7].ingredients.append(current_ingredients[4])
             # Light purple shake
