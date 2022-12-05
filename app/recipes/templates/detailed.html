@@ -12,7 +12,8 @@
   recipe["id"]|string+".jpeg")}}" class="card-img-top" alt="picture of {{ recipe['name'] }} shake">
   <div class="card-body">
     <h5 class="card-title">{{ recipe["name"] }}</h5>
-    <p class="card-text center">This shake contains : {{ recipe["calories"] }} calories.</p>
+    <p class="card-text center">Recipe: {{ recipe["recipetext"] }}</p>
+    <p class="card-text center">This shake contains: {{ recipe["calories"] }} calories.</p>
   <p class="card-text center">This shake contains: {{ recipe["fat"] }} grams of fat.</p>
   <p class="card-text center">This shake contains: {{ recipe["sugar"] }} grams of sugar.</p>
   <p class="card-text center">Enjoy!</p>
