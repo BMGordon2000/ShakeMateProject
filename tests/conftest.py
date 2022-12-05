@@ -1,6 +1,6 @@
 import pytest
 
-from app.DatabaseComponent import User, db
+from app.DatabaseComponent import User, db, recipe_table
 from app.__init__ import create_app
 from main import app
 
@@ -17,6 +17,11 @@ def new_user():
 def existing_user():
     user = User('Brian','drake@gmail.com', 'Brian12345')
     return user
+
+@pytest.fixture(scope='module')
+def test_recipe_image():
+    test_recipe1 = recipe_table(id=23)
+    return test_recipe1
 
 @pytest.fixture(scope='module')
 def test_client():
