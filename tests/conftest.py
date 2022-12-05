@@ -19,6 +19,16 @@ def new_recipe():
     return recipe
 
 @pytest.fixture(scope='module')
+def existing_user():
+    user = User('Brian','drake@gmail.com', 'Brian12345')
+    return user
+
+@pytest.fixture(scope='module')
+def test_recipe_image():
+    test_recipe1 = recipe_table(id=23)
+    return test_recipe1
+
+@pytest.fixture(scope='module')
 def test_client():
     # Create a Flask app configured for testing
     flask_app = create_app()
