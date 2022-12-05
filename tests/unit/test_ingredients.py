@@ -9,6 +9,8 @@ def app():
     app = create_app()
     return app
 
+
+# These tests test User Story #2
 def test_new_ingredient_1():
     test_ingredient1 = ingredients_table(name='WatermelonTest')
     assert test_ingredient1.name == 'WatermelonTest'
