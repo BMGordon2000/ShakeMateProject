@@ -27,7 +27,6 @@ def create_app():
     from app.ingredients import ingredients  # these imports are the blueprints
     from app.account import account
     from app.authentication import authentication
-    from app.favorites import favorites
 
     app.register_blueprint(index.index, url_prefix="")
     app.register_blueprint(recipes.recipes, url_prefix="/recipes")
@@ -36,7 +35,6 @@ def create_app():
     # can be used in the app in differnt files
     app.register_blueprint(account.account, url_prefix="")
     app.register_blueprint(authentication.authentication, url_prefix="")
-    app.register_blueprint(favorites.favorites, url_prefix="")
 
     from app import DatabaseComponent
 
@@ -75,9 +73,9 @@ def create_app():
                 print("I printed them!")
             else:
                 print("No users detected. Adding one!")
-                u = User(name="Bob", email="bob@abc.com", password="abc123")
-                db.session.add(u)
-                db.session.commit()
+                # u = User(name="Bob", email="bob@abc.com", password="abc123")
+                # db.session.add(u)
+                # db.session.commit()
                 print("The user is added. Inspect the database file or re-run the app to see it.")
 
         # Make sure the table exists before doing anything with it
@@ -176,6 +174,8 @@ def create_app():
             print("Filter table does not exist! did you run 'flask db upgrade' from the terminal?")
         else:
             print("Filter table already exists!")
+            current_ingredients = ingredients_table.query.all()
+            current_recipe = recipe_table.query.all()
             # brown shake with nuts
             current_recipe[0].ingredients.append(current_ingredients[7])
             # Banana shake
