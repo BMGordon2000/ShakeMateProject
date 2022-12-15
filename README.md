@@ -27,7 +27,7 @@
     - If you need to add a new library later, do `pip install ...` like normal, then do `pip freeze > requirements.txt` to update the library dependencies.
 2. Run `flask db upgrade`
     - this will create a database file in `instance/test.db`. You can open this file with a SQLite Browser and look at the tables.
-    - If you update a database model (e.g., DatabaseComponent.User), you must run `flask db migrate` and then `flask db upgrade` in the Terminal for the changes to show in the database file.
+    - If you update a database model (e.g., DatabaseComponent.User), you must run `flask db stamp head` then `flask db upgrade` and `flask db migrate` in the Terminal for the changes to show in the database file.
 3. Run `flask run` in the Terminal. You will see a URL that you can browse to show the app.
 
 ## Using pytest
